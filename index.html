@@ -6,10 +6,8 @@
 <meta name="theme-color" content="#123b2d">
 <meta name="description" content="هناكل إيه؟">
 <title>هناكل إيه؟</title>
-
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap');
-
 :root{--green:#174b38;--green2:#23694d;--mint:#eaf4ed;--cream:#faf9f5;--ink:#18251e;--muted:#718078;--line:#e7ebe6;--orange:#e99a4b;--white:#fff;--shadow:0 12px 35px #193d2810}
 *{box-sizing:border-box}
 body{margin:0;background:var(--cream);color:var(--ink);font-family:'Cairo',system-ui,sans-serif}
@@ -45,12 +43,11 @@ button{cursor:pointer;border:0}
 .chip{background:#f6f8f5;border:1px solid #e9eee9;border-radius:30px;padding:7px 10px;font-size:11px;color:#435148}
 .chip.active{background:var(--green);border-color:var(--green);color:white}
 .selected{display:flex;flex-wrap:wrap;gap:6px;margin-top:13px;min-height:25px}
-.selected .qtyrow{display:flex;align-items:center;gap:5px;background:var(--mint);color:var(--green);border-radius:11px;padding:5px 7px;font-size:10px;width:100%;justify-content:space-between}
-.qtyrow input{width:76px;border:1px solid #d8e6dc;border-radius:7px;padding:5px;background:white;text-align:center;font-size:11px}
-.qtyrow small{color:#52715f}
 .addrow{display:flex;gap:7px;margin-top:13px}
 .addrow input{min-width:0;flex:1;border:1px solid var(--line);border-radius:10px;padding:9px;font-size:12px}
 .addrow button{background:#eaf4ed;color:var(--green);border-radius:10px;padding:0 13px;font-weight:800}
+.family{display:flex;align-items:center;justify-content:space-between;margin-top:18px;padding-top:15px;border-top:1px solid var(--line);font-size:12px}
+.family input{width:58px;border:1px solid var(--line);border-radius:9px;padding:7px;text-align:center}
 .primary{background:var(--green);color:white;padding:13px 16px;border-radius:13px;font-weight:800;width:100%;margin-top:16px;box-shadow:0 7px 16px #174b3820}
 .primary:hover{background:var(--green2)}
 .content-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:13px;gap:12px}
@@ -84,36 +81,38 @@ button{cursor:pointer;border:0}
 .modal p,.modal li{font-size:13px;line-height:1.9}
 .modal .steps li{margin:4px 0;padding-right:3px}
 .modal .steps li::marker{color:var(--green2);font-weight:900}
+.ingredient-status{font-weight:800;white-space:nowrap}
+.ingredient-status.available{color:#16834b}
+.ingredient-status.missing{color:#d93636}
 .modal .close{float:left;background:#f0f4f0;border-radius:9px;padding:5px 10px}
 .footer{text-align:center;color:#9aa49d;font-size:10px;margin-top:28px}
-
 @media(max-width:850px){
-.layout{grid-template-columns:1fr}
-.hero{padding:23px}
-.hero h2{font-size:22px}
-.stats{gap:8px}
-.stat{padding:10px}
+ .layout{grid-template-columns:1fr}
+ .hero{padding:23px}
+ .hero h2{font-size:22px}
+ .stats{gap:8px}
+ .stat{padding:10px}
 }
 @media(max-width:520px){
-.app{padding:14px 12px 40px}
-.top{margin-bottom:17px}
-.brand h1{font-size:20px}
-.top-actions .pill{padding:8px 10px;font-size:11px}
-.hero{border-radius:20px;padding:20px 17px;align-items:flex-start;flex-direction:column}
-.hero:after{font-size:75px;left:8px}
-.hero button{padding:10px 14px}
-.stats{grid-template-columns:repeat(3,1fr)}
-.stat{display:block;text-align:center}
-.stat .ico{margin:0 auto 5px;width:32px;height:32px;font-size:15px}
-.stat strong{font-size:15px}
-.stat span{font-size:9px}
-.panel{padding:16px}
-.meals{gap:5px}
-.meal{padding:8px 6px}
-.meal .name{font-size:11px}
-.meal .foodicon{font-size:16px}
-.day{padding:12px 9px}
-.daytop{padding:0 3px}
+ .app{padding:14px 12px 40px}
+ .top{margin-bottom:17px}
+ .brand h1{font-size:20px}
+ .top-actions .pill{padding:8px 10px;font-size:11px}
+ .hero{border-radius:20px;padding:20px 17px;align-items:flex-start;flex-direction:column}
+ .hero:after{font-size:75px;left:8px}
+ .hero button{padding:10px 14px}
+ .stats{grid-template-columns:repeat(3,1fr)}
+ .stat{display:block;text-align:center}
+ .stat .ico{margin:0 auto 5px;width:32px;height:32px;font-size:15px}
+ .stat strong{font-size:15px}
+ .stat span{font-size:9px}
+ .panel{padding:16px}
+ .meals{gap:5px}
+ .meal{padding:8px 6px}
+ .meal .name{font-size:11px}
+ .meal .foodicon{font-size:16px}
+ .day{padding:12px 9px}
+ .daytop{padding:0 3px}
 }
 
 /* تحسينات الحركة والمظهر ثلاثي الأبعاد */
@@ -145,7 +144,7 @@ button{cursor:pointer;border:0}
 .suggestion small{color:var(--muted);font-size:10px}
 .addrow{align-items:stretch}
 @media(prefers-reduced-motion:reduce){
-*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+ *,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
 }
 
 /* ألوان إضافية ولمسات ثلاثية الأبعاد */
@@ -171,444 +170,433 @@ button{cursor:pointer;border:0}
 .chip.active{background:linear-gradient(145deg,#28775a,#124330);box-shadow:0 7px 0 #0e3829,0 13px 20px #174b3830;transform:translateY(-2px)}
 .primary{background:linear-gradient(135deg,#28775a,#123b2d);box-shadow:0 7px 0 #0c3024,0 13px 22px #174b3830}
 .primary:active{box-shadow:0 2px 0 #0c3024;transform:translateY(4px)}
-.stepper{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid #d6e6dc;border-radius:12px;padding:4px;box-shadow:0 3px 0 #dce9e0;direction:ltr}
-.stepper button{width:28px;height:29px;border-radius:8px;background:#eaf4ed;color:#17513b;font-size:12px;font-weight:900;display:grid;place-items:center;transition:transform .12s,background .12s}
-.stepper button:active{transform:scale(.88);background:#cde6d6}
-.stepper .step-value{min-width:36px;text-align:center;font-size:14px;color:#17291f;font-variant-numeric:tabular-nums}
-.qtyrow{background:linear-gradient(110deg,#eaf4ed,#f3f8f4);border:1px solid #e2eee5;box-shadow:0 4px 0 #e1ece4}
-.qtyrow small{white-space:nowrap}
 @keyframes popIn{0%{opacity:0;transform:translateY(10px) scale(.98)}100%{opacity:1;transform:translateY(0) scale(1)}}
 .day{animation:popIn .42s both}
 .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
 @media(max-width:520px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
-
-/* التعديل المطلوب: الناقص يسار أحمر، والزائد يمين أخضر */
-.stepper{
-  direction:ltr;
-  gap:7px;
-}
-.stepper button{
-  width:34px;
-  height:34px;
-  border-radius:10px;
-  font-size:19px;
-  font-weight:900;
-  display:grid;
-  place-items:center;
-  color:white;
-  transition:transform .12s,box-shadow .12s;
-}
-.stepper button:first-child{
-  background:linear-gradient(145deg,#ff7777,#d93636);
-  color:#fff;
-  box-shadow:0 4px 0 #a92525,0 5px 9px #d9363635;
-}
-.stepper button:last-child{
-  background:linear-gradient(145deg,#55bd85,#16804e);
-  color:#fff;
-  box-shadow:0 4px 0 #105c38,0 5px 9px #16804e35;
-}
-.stepper button:active{
-  transform:translateY(3px) scale(.94);
-}
-.stepper .step-value{
-  min-width:36px;
-  text-align:center;
-  font-size:14px;
-  color:#17291f;
-}
 </style>
 </head>
-
 <body>
 <div class="app">
-
 <header class="top">
-  <div class="brand">
-    <div class="logo">🍽</div>
-    <div>
-      <h1>هناكل إيه؟</h1>
-      <small>خطّط أكلك من الموجود في مطبخك</small>
-    </div>
-  </div>
+ <div class="brand">
+  <div class="logo">🍽</div>
+  <div><h1>هناكل إيه؟</h1><small>خطّط أكلك من الموجود في مطبخك</small></div>
+ </div>
 </header>
 
 <section class="hero">
-  <div>
-    <span class="tag">مطبخ مصري • تخطيط أسبوعي</span>
-    <h2>كل يوم هتاكل إيه؟ سيبها علينا 👨‍🍳</h2>
-    <p>اختار الموجود في التلاجة، وإحنا نرتبلك أسبوع كامل من الأكل البيتي.</p>
-  </div>
-  <button onclick="document.getElementById('fridge').scrollIntoView({behavior:'smooth'})">اختار مكوناتك ←</button>
+ <div>
+  <span class="tag">مطبخ مصري • تخطيط أسبوعي</span>
+  <h2>كل يوم هتاكل إيه؟ سيبها علينا 👨‍🍳</h2>
+  <p>اختار المكونات الموجودة في التلاجة، وإحنا نرتبلك أسبوع كامل من الأكل البيتي.</p>
+ </div>
+ <button onclick="document.getElementById('fridge').scrollIntoView({behavior:'smooth'})">اختار مكوناتك ←</button>
 </section>
 
 <div class="stats">
-  <div class="stat">
-    <div class="ico">🗓️</div>
-    <div><strong>7 أيام</strong><span>خطة أسبوعية</span></div>
-  </div>
-  <div class="stat">
-    <div class="ico">🍲</div>
-    <div><strong>21 وجبة</strong><span>فطار وغدا وعشا</span></div>
-  </div>
+ <div class="stat"><div class="ico">🗓️</div><div><strong>7 أيام</strong><span>خطة أسبوعية</span></div></div>
+ <div class="stat"><div class="ico">🍲</div><div><strong>21 وجبة</strong><span>فطار وغدا وعشا</span></div></div>
 </div>
 
 <div class="layout">
-
 <aside class="panel" id="fridge">
-  <h3>🧊 إيه الموجود في المطبخ؟</h3>
-  <p class="sub">اختار المكونات واكتب الكمية المتاحة من كل حاجة</p>
-  <input class="search" id="filter" placeholder="دوّر على مكون..." oninput="renderIngredients()">
-  <div id="ingredientList"></div>
-  <div class="selected" id="selected"></div>
+ <h3>🧊 إيه الموجود في المطبخ؟</h3>
+ <p class="sub">اختار المكونات الموجودة في مطبخك</p>
+ <input class="search" id="filter" placeholder="دوّر على مكون..." oninput="renderIngredients()">
 
-  <div class="addrow">
-    <div class="suggest-wrap">
-      <input id="customIngredient" autocomplete="off" placeholder="اكتب اسم المكون..." oninput="suggestCustom()" onkeydown="if(event.key==='Enter'){event.preventDefault();addCustom()}">
-      <div id="suggestions" class="suggestions"></div>
-    </div>
-    <button onclick="addCustom()">+ إضافة</button>
+ <div id="ingredientList">
+  <div class="category">🥚 ألبان وبيض</div>
+  <div class="chips">
+   <button class="chip active" onclick="toggle('بيض')">بيض</button>
+   <button class="chip active" onclick="toggle('جبنة بيضاء')">جبنة بيضاء</button>
+   <button class="chip" onclick="toggle('جبنة رومي')">جبنة رومي</button>
+   <button class="chip" onclick="toggle('جبنة قريش')">جبنة قريش</button>
+   <button class="chip" onclick="toggle('لبن')">لبن</button>
+   <button class="chip active" onclick="toggle('زبادي')">زبادي</button>
+   <button class="chip" onclick="toggle('زبدة')">زبدة</button>
   </div>
 
-  <button class="primary" onclick="generatePlan()">✨ اعملي جدول الأسبوع</button>
+  <div class="category">🍗 بروتين</div>
+  <div class="chips">
+   <button class="chip active" onclick="toggle('فراخ')">فراخ</button>
+   <button class="chip" onclick="toggle('لحمة مفرومة')">لحمة مفرومة</button>
+   <button class="chip" onclick="toggle('لحمة مكعبات')">لحمة مكعبات</button>
+   <button class="chip" onclick="toggle('سمك')">سمك</button>
+   <button class="chip" onclick="toggle('تونة')">تونة</button>
+   <button class="chip" onclick="toggle('كبدة')">كبدة</button>
+   <button class="chip" onclick="toggle('سجق')">سجق</button>
+  </div>
+
+  <div class="category">🥬 خضار</div>
+  <div class="chips">
+   <button class="chip active" onclick="toggle('طماطم')">طماطم</button>
+   <button class="chip active" onclick="toggle('خيار')">خيار</button>
+   <button class="chip active" onclick="toggle('بطاطس')">بطاطس</button>
+   <button class="chip active" onclick="toggle('بصل')">بصل</button>
+   <button class="chip" onclick="toggle('ثوم')">ثوم</button>
+   <button class="chip" onclick="toggle('فلفل')">فلفل</button>
+   <button class="chip" onclick="toggle('جزر')">جزر</button>
+   <button class="chip" onclick="toggle('كوسة')">كوسة</button>
+   <button class="chip" onclick="toggle('باذنجان')">باذنجان</button>
+   <button class="chip" onclick="toggle('ملوخية')">ملوخية</button>
+   <button class="chip" onclick="toggle('بسلة')">بسلة</button>
+   <button class="chip" onclick="toggle('سبانخ')">سبانخ</button>
+   <button class="chip" onclick="toggle('ليمون')">ليمون</button>
+  </div>
+
+  <div class="category">🍚 أساسيات</div>
+  <div class="chips">
+   <button class="chip active" onclick="toggle('رز')">رز</button>
+   <button class="chip active" onclick="toggle('مكرونة')">مكرونة</button>
+   <button class="chip active" onclick="toggle('عيش بلدي')">عيش بلدي</button>
+   <button class="chip" onclick="toggle('عيش توست')">عيش توست</button>
+   <button class="chip" onclick="toggle('دقيق')">دقيق</button>
+   <button class="chip" onclick="toggle('شوفان')">شوفان</button>
+   <button class="chip" onclick="toggle('عدس')">عدس</button>
+   <button class="chip active" onclick="toggle('فول')">فول</button>
+   <button class="chip" onclick="toggle('حمص')">حمص</button>
+   <button class="chip" onclick="toggle('فاصوليا')">فاصوليا</button>
+  </div>
+
+  <div class="category">🧂 إضافات</div>
+  <div class="chips">
+   <button class="chip" onclick="toggle('زيت')">زيت</button>
+   <button class="chip" onclick="toggle('صلصة طماطم')">صلصة طماطم</button>
+   <button class="chip" onclick="toggle('طحينة')">طحينة</button>
+   <button class="chip" onclick="toggle('عسل')">عسل</button>
+   <button class="chip" onclick="toggle('مربى')">مربى</button>
+   <button class="chip" onclick="toggle('تمر')">تمر</button>
+  </div>
+ </div>
+
+ <div class="selected" id="selected"></div>
+
+ <div class="addrow">
+  <div class="suggest-wrap">
+   <input id="customIngredient" autocomplete="off" placeholder="اكتب اسم المكون..." oninput="suggestCustom()" onkeydown="if(event.key==='Enter'){event.preventDefault();addCustom()}">
+   <div id="suggestions" class="suggestions"></div>
+  </div>
+  <button onclick="addCustom()">+ إضافة</button>
+ </div>
+
+ <button class="primary" id="generatePlanBtn" type="button">✨ اعملي جدول الأسبوع</button>
 </aside>
 
 <main>
-  <div class="content-head">
-    <h3>📅 جدول أكلك الأسبوعي</h3>
-    <span class="weeklabel" id="weekLabel">لم يتم إنشاء الجدول بعد</span>
+ <div class="content-head">
+  <h3>📅 جدول أكلك الأسبوعي</h3>
+  <span class="weeklabel" id="weekLabel">لم يتم إنشاء الجدول بعد</span>
+ </div>
+
+ <div class="days" id="days">
+  <div class="empty plan-empty">
+   <div class="empty-icon">🍽️</div>
+   <strong>جدول الأسبوع لسه مستني اختياراتك</strong>
+   <p>اختار المكونات المتاحة، وبعدها اضغط «اعملي جدول الأسبوع» علشان نجهزلك 21 وجبة.</p>
   </div>
+ </div>
 
-  <div class="days" id="days">
-    <div class="empty plan-empty">
-      <div class="empty-icon">🍽️</div>
-      <strong>جدول الأسبوع لسه مستني اختياراتك</strong>
-      <p>اختار المكونات المتاحة، وبعدها اضغط «اعملي جدول الأسبوع» علشان نجهزلك 21 وجبة.</p>
-    </div>
-  </div>
+ <section class="panel tips-panel" id="shortages" style="display:none">
+  <h3>🧾 النواقص</h3>
+  <p class="sub">المكونات الناقصة علشان تنفّذ جدول الأسبوع</p>
+  <div id="shopping"></div>
+ </section>
 
-  <section class="panel tips-panel" id="shortages" style="display:none">
-    <h3>🧾 النواقص</h3>
-    <p class="sub">المكونات والكميات اللي ناقصة علشان تنفّذ جدول الأسبوع</p>
-    <div id="shopping"></div>
-  </section>
-
-  <section class="panel tips-panel">
-    <h3>💚 نصايح أكل البيت</h3>
-    <p class="sub">تخطيط أذكى ومجهود أقل</p>
-    <ul style="padding-right:18px;font-size:12px;line-height:2;color:#526158">
-      <li>جهّز البقوليات وانقعها من بالليل.</li>
-      <li>قسّم الفراخ واللحمة حصص قبل التجميد.</li>
-      <li>نوّع بين البروتين والخضار والنشويات.</li>
-      <li>استخدم بواقي الغدا في عشا مختلف.</li>
-    </ul>
-  </section>
+ <section class="panel tips-panel">
+  <h3>💚 نصايح أكل البيت</h3>
+  <p class="sub">تخطيط أذكى ومجهود أقل</p>
+  <ul style="padding-right:18px;font-size:12px;line-height:2;color:#526158">
+   <li>جهّز البقوليات وانقعها من بالليل.</li>
+   <li>قسّم الفراخ واللحمة حصص قبل التجميد.</li>
+   <li>نوّع بين البروتين والخضار والنشويات.</li>
+   <li>استخدم بواقي الغدا في عشا مختلف.</li>
+  </ul>
+ </section>
 </main>
-
 </div>
 
 <div class="footer">هناكل إيه؟ © 2026 — معمول بحب للأكل البيتي المصري ❤️</div>
 </div>
 
 <div class="modalbg" id="modal" onclick="if(event.target===this)closeModal()">
-  <div class="modal">
-    <button class="close" onclick="closeModal()">إغلاق ✕</button>
-    <div id="modalContent"></div>
-  </div>
+ <div class="modal">
+  <button class="close" onclick="closeModal()">إغلاق ✕</button>
+  <div id="modalContent"></div>
+ </div>
 </div>
 
 <script>
 const groups={
-'🥚 ألبان وبيض':['بيض','جبنة بيضاء','جبنة رومي','جبنة قريش','لبن','زبادي','زبدة'],
-'🍗 بروتين':['فراخ','لحمة مفرومة','لحمة مكعبات','سمك','تونة','كبدة','سجق'],
-'🥬 خضار':['طماطم','خيار','بطاطس','بصل','ثوم','فلفل','جزر','كوسة','باذنجان','ملوخية','بسلة','سبانخ','ليمون'],
-'🍚 أساسيات':['رز','مكرونة','عيش بلدي','عيش توست','دقيق','شوفان','عدس','فول','حمص','فاصوليا'],
-'🧂 إضافات':['زيت','صلصة طماطم','طحينة','عسل','مربى','تمر']
+ '🥚 ألبان وبيض':['بيض','جبنة بيضاء','جبنة رومي','جبنة قريش','لبن','زبادي','زبدة'],
+ '🍗 بروتين':['فراخ','لحمة مفرومة','لحمة مكعبات','سمك','تونة','كبدة','سجق'],
+ '🥬 خضار':['طماطم','خيار','بطاطس','بصل','ثوم','فلفل','جزر','كوسة','باذنجان','ملوخية','بسلة','سبانخ','ليمون'],
+ '🍚 أساسيات':['رز','مكرونة','عيش بلدي','عيش توست','دقيق','شوفان','عدس','فول','حمص','فاصوليا'],
+ '🧂 إضافات':['زيت','صلصة طماطم','طحينة','عسل','مربى','تمر']
 };
 
 let selected=new Set(['بيض','طماطم','بطاطس','فراخ','رز','مكرونة','بصل','جبنة بيضاء','زبادي','خيار','فول','عيش بلدي']);
-let custom=[], currentPlan=[], quantities={};
-
-function unitFor(x){
-  if(x==='بيض') return 'بيضة';
-  if(['لبن','زيت','صلصة طماطم','عسل'].includes(x)) return 'لتر';
-  if(['عيش بلدي','عيش توست'].includes(x)) return 'رغيف';
-  return 'كيلو';
-}
-
-function defaultQty(x){
-  const u=unitFor(x);
-  if(u==='بيضة') return 6;
-  if(u==='رغيف') return 6;
-  return 1;
-}
-
-function amountFor(x){
-  if(x==='بيض') return 1;
-  if(['عيش بلدي','عيش توست'].includes(x)) return 1;
-  if(['لبن','زيت','صلصة طماطم','عسل'].includes(x)) return 0.05;
-  if(['فراخ','سمك'].includes(x)) return 0.18;
-  if(['لحمة مفرومة','لحمة مكعبات','كبدة','سجق','تونة'].includes(x)) return 0.15;
-  if(['رز','مكرونة','عدس','فول','حمص','فاصوليا','شوفان','دقيق'].includes(x)) return 0.09;
-  if(['جبنة بيضاء','جبنة رومي','جبنة قريش','زبادي','زبدة','طحينة'].includes(x)) return 0.075;
-  if(['بطاطس','طماطم','خيار','بصل','جزر','كوسة','باذنجان','فلفل','سبانخ','ملوخية','بسلة','ليمون','ثوم'].includes(x)) return 0.1;
-  return 0.03;
-}
-
-function requiredFor(x){
-  let total=0;
-  currentPlan.flatMap(d=>d.meals).forEach(r=>{
-    if(r.need.includes(x)) total+=amountFor(x);
-  });
-  return total;
-}
+let custom=[],currentPlan=[];
 
 function renderShopping(){
-  const all=[...new Set(currentPlan.flatMap(d=>d.meals.flatMap(r=>r.need)))];
-  const missing=all.map(x=>({
-    x,
-    req:requiredFor(x),
-    have:selected.has(x)?Number(quantities[x]??defaultQty(x)):0,
-    unit:unitFor(x)
-  })).filter(r=>r.have<r.req);
+ const all=[...new Set(currentPlan.flatMap(d=>d.meals.flatMap(r=>r.need)))];
+ const missing=all.filter(x=>!selected.has(x));
 
-  const fmt=n=>Number.isInteger(n)?String(n):n.toFixed(2).replace(/0+$/,'').replace(/\.$/,'');
-
-  document.getElementById('shopping').innerHTML=missing.length
-    ? `<div class="note">محتاج تشتري ${missing.length} مكون علشان تكمل جدول الأسبوع.</div>
-       <ul style="padding-right:20px;line-height:2">
-       ${missing.map(r=>`<li><b>${r.x}</b> — الناقص ${fmt(Math.max(0,r.req-r.have))} ${r.unit}</li>`).join('')}
-       </ul>
-       <small style="color:#718078">المقادير تقديرية للوصفات، وبتتحسب بالكيلو واللتر، والبيض بالعدد والعيش بالرغيف.</small>`
-    : '<div class="empty">🎉 مفيش نواقص حسب الكميات اللي سجلتها.</div>';
+ document.getElementById('shopping').innerHTML=missing.length
+  ? `<div class="note">محتاج تضيف ${missing.length} مكون علشان تكمل جدول الأسبوع.</div><ul style="padding-right:20px;line-height:2">${missing.map(x=>`<li><b>${x}</b></li>`).join('')}</ul>`
+  : '<div class="empty">🎉 كل مكونات الوجبات موجودة في اختياراتك.</div>';
 }
 
 function renderIngredients(){
-  let q=document.getElementById('filter').value.trim();
-  let h='';
+ let q=document.getElementById('filter').value.trim();
+ let h='';
 
-  Object.entries(groups).forEach(([g,items])=>{
-    let a=items.filter(x=>x.includes(q));
-    if(!a.length)return;
+ Object.entries(groups).forEach(([g,items])=>{
+  let a=items.filter(x=>x.includes(q));
+  if(!a.length)return;
 
-    h+=`<div class="category">${g}</div><div class="chips">`+
-      a.map(x=>`<button class="chip ${selected.has(x)?'active':''}" onclick="toggle('${x}')">${x}</button>`).join('')+
-      '</div>';
-  });
+  h+=`<div class="category">${g}</div><div class="chips">`+
+   a.map(x=>`<button class="chip ${selected.has(x)?'active':''}" onclick="toggle('${x}')">${x}</button>`).join('')+
+   '</div>';
+ });
 
-  if(custom.length){
-    h+='<div class="category">✨ مكوناتك الخاصة</div><div class="chips">'+
-      custom.map(x=>`<button class="chip ${selected.has(x)?'active':''}" onclick="toggle('${x}')">${x}</button>`).join('')+
-      '</div>';
-  }
+ if(custom.length){
+  h+='<div class="category">✨ مكوناتك الخاصة</div><div class="chips">'+
+   custom.map(x=>`<button class="chip ${selected.has(x)?'active':''}" onclick="toggle('${x}')">${x}</button>`).join('')+
+   '</div>';
+ }
 
-  document.getElementById('ingredientList').innerHTML=h||'<div class="empty">مش لاقي المكون ده</div>';
-
-  document.getElementById('selected').innerHTML=[...selected].map(x=>{
-    let u=unitFor(x);
-    return `<div class="qtyrow">
-      <b>${x}</b>
-      <span>
-        <div class="stepper" role="group" aria-label="كمية ${x}">
-          <button type="button" aria-label="تقليل كمية ${x}" onclick="changeQty('${x}',-1)">−</button>
-          <strong class="step-value" id="qty-${encodeURIComponent(x)}">${quantities[x]??defaultQty(x)}</strong>
-          <button type="button" aria-label="زيادة كمية ${x}" onclick="changeQty('${x}',1)">+</button>
-        </div>
-        <small>${u}</small>
-      </span>
-    </div>`;
-  }).join('');
-}
-
-function changeQty(x,delta){
-  let current=Number(quantities[x]??defaultQty(x));
-  let next=Math.max(0,Math.round((current+delta)*100)/100);
-  quantities[x]=next;
-
-  let value=document.getElementById('qty-'+encodeURIComponent(x));
-  if(value)value.textContent=next;
-
-  if(currentPlan.length)renderShopping();
+ document.getElementById('ingredientList').innerHTML=h||'<div class="empty">مش لاقي المكون ده</div>';
+ document.getElementById('selected').innerHTML=[...selected].map(x=>`<div class="selected-item"><b>${x}</b></div>`).join('');
 }
 
 function toggle(x){
-  if(selected.has(x)){
-    selected.delete(x);
-  }else{
-    selected.add(x);
-    if(quantities[x]===undefined)quantities[x]=defaultQty(x);
-  }
-  renderIngredients();
+ if(selected.has(x))selected.delete(x);
+ else selected.add(x);
+
+ renderIngredients();
+ if(currentPlan.length)renderShopping();
 }
 
 function suggestCustom(){
-  let input=document.getElementById('customIngredient');
-  let box=document.getElementById('suggestions');
-  let q=input.value.trim();
+ let input=document.getElementById('customIngredient');
+ let box=document.getElementById('suggestions');
+ let q=input.value.trim();
 
-  if(!q){
-    box.classList.remove('show');
-    box.innerHTML='';
-    return;
-  }
+ if(!q){
+  box.classList.remove('show');
+  box.innerHTML='';
+  return;
+ }
 
-  let all=[...new Set([...Object.values(groups).flat(),...custom])];
-  let matches=all.filter(x=>x.includes(q)&&!selected.has(x)).slice(0,7);
+ let all=[...new Set([...Object.values(groups).flat(),...custom])];
+ let matches=all.filter(x=>x.includes(q)&&!selected.has(x)).slice(0,7);
 
-  if(!matches.length){
-    box.innerHTML='<div class="suggestion">مفيش اقتراح مطابق — اضغط إضافة لإضافته كمكون جديد</div>';
-    box.classList.add('show');
-    return;
-  }
-
-  box.innerHTML=matches.map(x=>
-    `<button type="button" class="suggestion" onclick="chooseSuggestion('${x.replace(/'/g,"\\'")}')">
-      <span>${x}</span><small>اضغط للاختيار</small>
-    </button>`
-  ).join('');
-
+ if(!matches.length){
+  box.innerHTML='<div class="suggestion">مفيش اقتراح مطابق — اضغط إضافة لإضافته كمكون جديد</div>';
   box.classList.add('show');
+  return;
+ }
+
+ box.innerHTML=matches.map(x=>`<button type="button" class="suggestion" onclick="chooseSuggestion('${x.replace(/'/g,"\\'")}')"><span>${x}</span><small>اضغط للاختيار</small></button>`).join('');
+ box.classList.add('show');
 }
 
 function chooseSuggestion(x){
-  selected.add(x);
-  if(quantities[x]===undefined)quantities[x]=defaultQty(x);
-
-  document.getElementById('customIngredient').value='';
-  document.getElementById('suggestions').classList.remove('show');
-  renderIngredients();
+ selected.add(x);
+ document.getElementById('customIngredient').value='';
+ document.getElementById('suggestions').classList.remove('show');
+ renderIngredients();
 }
 
 function addCustom(){
-  let x=document.getElementById('customIngredient').value.trim();
-  if(!x)return;
+ let x=document.getElementById('customIngredient').value.trim();
+ if(!x)return;
 
-  let known=[...Object.values(groups).flat(),...custom].find(v=>v===x);
-  if(known){
-    chooseSuggestion(known);
-    return;
-  }
+ let known=[...Object.values(groups).flat(),...custom].find(v=>v===x);
+ if(known){
+  chooseSuggestion(known);
+  return;
+ }
 
-  if(!custom.includes(x))custom.push(x);
-  selected.add(x);
-  quantities[x]=quantities[x]??defaultQty(x);
+ if(!custom.includes(x))custom.push(x);
+ selected.add(x);
 
-  document.getElementById('customIngredient').value='';
-  document.getElementById('suggestions').classList.remove('show');
-  renderIngredients();
+ document.getElementById('customIngredient').value='';
+ document.getElementById('suggestions').classList.remove('show');
+ renderIngredients();
 }
 
 const recipes=[
-{n:'فول بالزيت والليمون',k:'فطار',i:'🫘',t:10,need:['فول','ليمون','زيت','عيش بلدي'],how:'صفّي الفول لو فيه سوائل زيادة، وحطّه في حلة صغيرة على نار هادية مع ملعقتين ماء. اهرس جزءًا منه بالشوكة وسيب جزءًا صحيحًا للقوام. ضيف الكمون والملح، وقلّب دقيقتين. ارفع الحلة من النار، ثم أضف الزيت وعصير الليمون. قدّمه ساخنًا مع العيش البلدي والخضار الطازج.'},
+{n:'فول بالزيت والليمون',k:'فطار',i:'🫘',t:10,need:['فول','ليمون','زيت','عيش بلدي'],how:'صفّي الفول لو فيه سوائل زيادة، وحطّه في حلة صغيرة على نار هادية مع قليل من الماء. اهرس جزءًا منه بالشوكة وسيب جزءًا صحيحًا للقوام. ضيف الكمون والملح، وقلّب دقيقتين. ارفع الحلة من النار، ثم أضف الزيت وعصير الليمون. قدّمه ساخنًا مع العيش البلدي والخضار الطازج.'},
 {n:'بيض بالطماطم (شكشوكة)',k:'فطار',i:'🍳',t:15,need:['بيض','طماطم','بصل','فلفل'],how:'قطّع البصل والفلفل والطماطم مكعبات صغيرة. سخّن قليلًا من الزيت، وشوّح البصل حتى يطرى ثم أضف الفلفل. أضف الطماطم والملح والفلفل والكمون واترك الخليط 6–8 دقائق حتى تتسبك الصلصة. اعمل فراغات صغيرة واكسر البيض فيها. غطّ الطاسة على نار هادئة حتى ينضج البياض ويصل الصفار لدرجة التسوية المطلوبة.'},
 {n:'جبنة وخضار وعيش بلدي',k:'فطار',i:'🧀',t:5,need:['جبنة بيضاء','خيار','طماطم','عيش بلدي'],how:'قطّع الجبنة إلى مكعبات أو شرائح. اغسل الخيار والطماطم وجففهما ثم قطّعهما. رتّب المكونات في طبق، وأضف رشة زعتر أو نعناع وقليلًا من زيت الزيتون حسب الرغبة. قدّمها مع العيش البلدي.'},
 {n:'بيض مسلوق وبطاطس',k:'فطار',i:'🥔',t:20,need:['بيض','بطاطس'],how:'اغسل البطاطس جيدًا وضعها في حلة ماء. اتركها حتى تلين عند اختبارها بالشوكة. اسلق البيض في حلة منفصلة لمدة 9–10 دقائق بعد الغليان. صفِّ الماء وبرّد المكونات قليلًا، ثم قشّر البطاطس والبيض وقطّعهما. أضف الكمون والملح والليمون.'},
 {n:'شوفان باللبن والتمر',k:'فطار',i:'🥣',t:8,need:['شوفان','لبن','تمر'],how:'ضع اللبن والشوفان في حلة صغيرة على نار متوسطة. قلّب باستمرار 5–7 دقائق حتى يتماسك الخليط من غير ما يلتصق بالقاع. قطّع التمر وأزل النوى، ثم أضفه في آخر دقيقة. اتركه يهدأ قليلًا قبل التقديم.'},
-
-{n:'فراخ بالفرن ورز',k:'غدا',i:'🍗',t:50,need:['فراخ','رز','بصل','ثوم'],how:'نظّف قطع الفراخ وجففها. اخلط البصل المبشور والثوم والليمون والملح والفلفل والبهارات وقليلًا من الزيت، ثم غطِّ الفراخ بالتتبيلة واتركها 20 دقيقة على الأقل. رصّها في صينية وأضف ربع كوب ماء. أدخلها فرنًا ساخنًا على 200 درجة حتى تنضج تمامًا ويصبح لونها ذهبيًا، مع التأكد من نضج الجزء الداخلي. اغسل الأرز واطبخه بالطريقة المعتادة وقدّمه بجانب الفراخ.'},
+{n:'فراخ بالفرن ورز',k:'غدا',i:'🍗',t:50,need:['فراخ','رز','بصل','ثوم'],how:'نظّف قطع الفراخ وجففها. اخلط البصل المبشور والثوم والليمون والملح والفلفل والبهارات وقليلًا من الزيت، ثم غطِّ الفراخ بالتتبيلة واتركها 20 دقيقة على الأقل. رصّها في صينية وأضف قليل من الماء. أدخلها فرنًا ساخنًا على 200 درجة حتى تنضج تمامًا ويصبح لونها ذهبيًا، مع التأكد من نضج الجزء الداخلي. اغسل الأرز واطبخه بالطريقة المعتادة وقدّمه بجانب الفراخ.'},
 {n:'مكرونة باللحمة المفرومة',k:'غدا',i:'🍝',t:35,need:['مكرونة','لحمة مفرومة','صلصة طماطم','بصل'],how:'اسلق المكرونة في ماء مغلي مملح حتى تصل لدرجة النضج المناسبة، ثم صفّها. في حلة أخرى شوّح البصل المفروم في قليل من الزيت. أضف اللحمة المفرومة وفتّتها بملعقة حتى يتغير لونها وتنضج. أضف صلصة الطماطم والملح والفلفل ورشة بهارات، واتركها على نار هادئة 10–15 دقيقة. قلّب المكرونة مع جزء من الصلصة وقدّم باقي الصلصة فوقها.'},
-{n:'كفتة وبطاطس في الفرن',k:'غدا',i:'🍢',t:45,need:['لحمة مفرومة','بطاطس','بصل','طماطم'],how:'ابشر البصل واعصره قليلًا، ثم اخلطه باللحمة والملح والفلفل والبهارات. شكّل الخليط أصابع متساوية. قطّع البطاطس والطماطم شرائح، ورصّها في صينية مع الكفتة. أضف نصف كوب ماء وقليلًا من الزيت. غطّ الصينية أولًا واتركها في فرن 200 درجة حتى تنضج البطاطس، ثم اكشفها لتحمير الوجه.'},
+{n:'كفتة وبطاطس في الفرن',k:'غدا',i:'🍢',t:45,need:['لحمة مفرومة','بطاطس','بصل','طماطم'],how:'ابشر البصل واعصره قليلًا، ثم اخلطه باللحمة والملح والفلفل والبهارات. شكّل الخليط أصابع متساوية. قطّع البطاطس والطماطم شرائح، ورصّها في صينية مع الكفتة. أضف قليل من الماء وقليلًا من الزيت. غطّ الصينية أولًا واتركها في فرن 200 درجة حتى تنضج البطاطس، ثم اكشفها لتحمير الوجه.'},
 {n:'ملوخية ورز وفراخ',k:'غدا',i:'🥬',t:40,need:['ملوخية','فراخ','رز','ثوم'],how:'اسلق الفراخ مع البصل والحبهان والملح حتى تنضج، ثم صفِّ الشوربة. اترك الشوربة تهدأ قليلًا ثم أضف الملوخية المفرومة تدريجيًا مع التقليب. سخّنها على نار هادئة من غير غليان شديد. حضّر التقلية بتحمير الثوم المفروم في السمن حتى يصبح ذهبيًا، ثم أضف الكزبرة الجافة واسكبها على الملوخية. قدّمها مع الأرز والفراخ.'},
 {n:'كشري مصري',k:'غدا',i:'🥘',t:55,need:['رز','مكرونة','عدس','بصل','صلصة طماطم'],how:'اغسل العدس واسلقه حتى يقترب من النضج. اطبخ الأرز بالشعرية أو من دونها، واسلق المكرونة والحمص كلٌّ على حدة. حضّر صلصة الطماطم بالثوم والخل والكمون واتركها تتسبك. قطّع البصل شرائح رفيعة وقلّبه في الزيت حتى يصبح مقرمشًا. رتّب الأرز والعدس والمكرونة والحمص، ثم أضف الصلصة والبصل المحمّر والدقة حسب الرغبة.'},
-{n:'بطاطس بالفراخ',k:'غدا',i:'🍲',t:45,need:['بطاطس','فراخ','بصل','طماطم'],how:'قطّع البطاطس حلقات متوسطة والبصل والطماطم شرائح. تبّل الفراخ بالملح والفلفل والبهارات والثوم. رصّ الخضار في صينية ثم وزّع الفراخ فوقه. أضف نصف كوب ماء وملعقة زيت، وغطّ الصينية. اخبزها على 200 درجة حتى تنضج الفراخ والبطاطس، ثم اكشف الغطاء لتحمير الوجه.'},
+{n:'بطاطس بالفراخ',k:'غدا',i:'🍲',t:45,need:['بطاطس','فراخ','بصل','طماطم'],how:'قطّع البطاطس حلقات متوسطة والبصل والطماطم شرائح. تبّل الفراخ بالملح والفلفل والبهارات والثوم. رصّ الخضار في صينية ثم وزّع الفراخ فوقه. أضف قليل من الماء وملعقة زيت، وغطّ الصينية. اخبزها على 200 درجة حتى تنضج الفراخ والبطاطس، ثم اكشف الغطاء لتحمير الوجه.'},
 {n:'عدس أصفر',k:'غدا',i:'🍵',t:30,need:['عدس','جزر','بصل','بطاطس'],how:'اغسل العدس جيدًا. قطّع الجزر والبصل والبطاطس مكعبات، وضعها مع العدس في حلة وأضف ماءً يغطي المكونات. اتركها تغلي ثم خفّف النار حتى تلين الخضار والعدس. اخلط الشوربة بالخلاط اليدوي حتى تصبح ناعمة، ثم أعدها للنار واضبط الملح والكمون والقوام بالماء الساخن. قدّمها مع الليمون والعيش.'},
-
 {n:'تونة وسلطة',k:'عشا',i:'🥗',t:10,need:['تونة','خيار','طماطم','ليمون'],how:'صفِّ التونة جيدًا من الزيت أو الماء. اغسل الخيار والطماطم وقطّعهما مكعبات صغيرة. اخلط المكونات مع عصير الليمون والملح والفلفل ورشة كمون. أضف بقدونسًا مفرومًا إن توفر، وقدّم السلطة باردة مع العيش.'},
 {n:'زبادي وخيار وعيش',k:'عشا',i:'🥒',t:5,need:['زبادي','خيار','عيش بلدي'],how:'اغسل الخيار وابشره أو قطّعه مكعبات صغيرة. اخلطه بالزبادي مع رشة ملح ونعناع جاف أو كمون. اترك الخليط في الثلاجة 10 دقائق حتى تتجانس النكهات. قدّمه باردًا مع العيش البلدي.'},
 {n:'ساندوتش جبنة وطماطم',k:'عشا',i:'🥪',t:7,need:['جبنة بيضاء','طماطم','عيش بلدي'],how:'فتّت الجبنة في طبق. قطّع الطماطم مكعبات صغيرة وصفي السوائل الزائدة إذا كانت كثيرة. اخلط الجبنة بالطماطم ورشة فلفل ونعناع أو زعتر وقليل من زيت الزيتون. احشُ العيش وقدّمه فورًا حتى لا يطرى.'},
 {n:'بطاطس مهروسة وبيض',k:'عشا',i:'🥔',t:20,need:['بطاطس','بيض','زبدة'],how:'قشّر البطاطس وقطّعها مكعبات متساوية. اسلقها في ماء مملح حتى تلين، ثم صفِّها جيدًا. اهرسها وهي ساخنة مع الزبدة وقليل من اللبن والملح والفلفل حتى تصبح ناعمة. قدّمها مع البيض المسلوق أو الأومليت.'},
-{n:'فول بالطحينة',k:'عشا',i:'🫘',t:8,need:['فول','طحينة','ليمون','عيش بلدي'],how:'سخّن الفول في حلة صغيرة مع ملعقة ماء. في طبق جانبي اخلط الطحينة مع عصير الليمون وقليل من الماء تدريجيًا حتى تصبح كريمية. أضفها إلى الفول مع الكمون والملح وقلّب جيدًا. قدّم الطبق ساخنًا مع العيش.'},
+{n:'فول بالطحينة',k:'عشا',i:'🫘',t:8,need:['فول','طحينة','ليمون','عيش بلدي'],how:'سخّن الفول في حلة صغيرة مع قليل من الماء. في طبق جانبي اخلط الطحينة مع عصير الليمون وقليل من الماء تدريجيًا حتى تصبح كريمية. أضفها إلى الفول مع الكمون والملح وقلّب جيدًا. قدّم الطبق ساخنًا مع العيش.'},
 {n:'أومليت خضار',k:'عشا',i:'🍳',t:12,need:['بيض','طماطم','فلفل','بصل'],how:'قطّع الطماطم والفلفل والبصل مكعبات صغيرة. شوّح البصل والفلفل في قليل من الزيت حتى يطروا، ثم أضف الطماطم دقيقة أو دقيقتين. اخفق البيض مع الملح والفلفل، واسكبه فوق الخضار. خفّف النار وغطّ الطاسة حتى يتماسك الوجه، ثم اطوِ الأومليت وقدّمه ساخنًا.'}
 ];
 
 const days=['السبت','الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة'];
 
 function choose(kind,used){
-  let pool=recipes.filter(r=>r.k===kind);
-  let scored=pool.map(r=>({r,s:r.need.filter(x=>selected.has(x)).length})).sort((a,b)=>b.s-a.s);
-  let available=scored.filter(x=>x.s>=Math.min(2,x.r.need.length)&&!used.has(x.r.n));
-  if(!available.length)available=scored.filter(x=>!used.has(x.r.n));
-  if(!available.length)available=scored;
-
-  let best=available[Math.floor(Math.random()*Math.min(
-    available.length,Math.max(1,Math.ceil(available.length*.65))
-  ))].r;
-
-  used.add(best.n);
-  return best;
+ let pool=recipes.filter(r=>r.k===kind);
+ let scored=pool.map(r=>({r,s:r.need.filter(x=>selected.has(x)).length})).sort((a,b)=>b.s-a.s);
+ let available=scored.filter(x=>x.s>=Math.min(2,x.r.need.length)&&!used.has(x.r.n));
+ if(!available.length)available=scored.filter(x=>!used.has(x.r.n));
+ if(!available.length)available=scored;
+ let best=available[Math.floor(Math.random()*Math.min(available.length,Math.max(1,Math.ceil(available.length*.65))))].r;
+ used.add(best.n);
+ return best;
 }
 
 function generatePlan(){
-  [...selected].forEach(x=>{
-    if(quantities[x]===undefined)quantities[x]=defaultQty(x);
-  });
+ let used=new Set();
 
-  let used=new Set();
-  currentPlan=days.map(d=>({
-    day:d,
-    meals:[choose('فطار',used),choose('غدا',used),choose('عشا',used)]
-  }));
+ currentPlan=days.map(d=>({
+  day:d,
+  meals:[choose('فطار',used),choose('غدا',used),choose('عشا',used)]
+ }));
 
-  renderPlan();
-  renderIngredients();
-  document.getElementById('weekLabel').textContent='خطة جديدة • 7 أيام';
-  document.getElementById('shortages').style.display='block';
-  renderShopping();
+ // توزيع المكونات الجديدة التي أضافها المستخدم على وجبات الأسبوع.
+ const extras=custom.filter(x=>selected.has(x));
+ const allMeals=currentPlan.flatMap(day=>day.meals);
+
+ extras.forEach((ingredient,index)=>{
+  const meal=allMeals[index%allMeals.length];
+  meal.need=[...new Set([...meal.need,ingredient])];
+  meal.customExtras=[...(meal.customExtras||[]),ingredient];
+ });
+
+ renderPlan();
+ renderIngredients();
+
+ document.getElementById('weekLabel').textContent='خطة جديدة • 7 أيام';
+ document.getElementById('shortages').style.display='block';
+
+ renderShopping();
 }
 
 function renderPlan(){
-  let labels=['🌅 الفطار','☀️ الغدا','🌙 العشا'];
+ let labels=['🌅 الفطار','☀️ الغدا','🌙 العشا'];
 
-  document.getElementById('days').innerHTML=currentPlan.map((d,di)=>
-    `<section class="day">
-      <div class="daytop">
-        <strong>${d.day}</strong>
-        <small>اليوم ${di+1} من 7</small>
-      </div>
-      <div class="meals">
-        ${d.meals.map((m,mi)=>
-          `<div class="meal">
-            <div class="kind">${labels[mi]}</div>
-            <div class="foodicon">${m.i}</div>
-            <div class="name">${m.n}</div>
-            <div class="meta">⏱ ${m.t} دقيقة</div>
-            <button onclick="showRecipe(${di},${mi})">طريقة التحضير ←</button>
-          </div>`
-        ).join('')}
-      </div>
-    </section>`
-  ).join('');
+ document.getElementById('days').innerHTML=currentPlan.map((d,di)=>
+  `<section class="day">
+   <div class="daytop">
+    <strong>${d.day}</strong>
+    <small>اليوم ${di+1} من 7</small>
+   </div>
+   <div class="meals">
+    ${d.meals.map((m,mi)=>
+     `<div class="meal">
+      <div class="kind">${labels[mi]}</div>
+      <div class="foodicon">${m.i}</div>
+      <div class="name">${m.n}</div>
+      <div class="meta">⏱ ${m.t} دقيقة</div>
+      <button onclick="showRecipe(${di},${mi})">طريقة التحضير ←</button>
+     </div>`
+    ).join('')}
+   </div>
+  </section>`
+ ).join('');
 }
 
 function showRecipe(d,m){
-  let r=currentPlan[d].meals[m];
+ let r=currentPlan[d].meals[m];
 
-  document.getElementById('modalContent').innerHTML=`
-    <h3>${r.i} ${r.n}</h3>
-    <p style="color:#718078">⏱ وقت التحضير: ${r.t} دقيقة</p>
-    <b>المكونات:</b>
-    <ul>${r.need.map(x=>`<li>${x} ${selected.has(x)?'<span style="color:#16804e;font-weight:800">✓ موجود</span>':'<span style="color:#d93636;font-weight:800">✗ ناقص</span>'}</li>`).join('')}</ul>
-    <b>طريقة التحضير بالتفصيل:</b>
-    <ol class="steps">
-      ${r.how.split('،').join('.').split('.').filter(x=>x.trim()).map(x=>`<li>${x.trim()}</li>`).join('')}
-    </ol>
-    <p style="color:#718078;font-size:11px">المقادير تقديرية، وتقدر تراجع الكميات حسب احتياج البيت.</p>
-  `;
+ const ingredients=r.need.map(x=>{
+  const available=selected.has(x);
+  const status=available
+   ? '<span class="ingredient-status available">✓ موجود</span>'
+   : '<span class="ingredient-status missing">✗ ناقص</span>';
 
-  document.getElementById('modal').classList.add('show');
+  return `<li>${x} — ${status}</li>`;
+ }).join('');
+
+ const extraNote=r.customExtras?.length
+  ? `<p style="color:#52715f;background:#eaf4ed;padding:9px 12px;border-radius:10px;font-size:12px">✨ مكوناتك المضافة للوجبة: ${r.customExtras.join('، ')}. استخدمها كإضافة مناسبة للوصفة أو عدّل طريقة التحضير حسب نوع المكوّن.</p>`
+  : '';
+
+ document.getElementById('modalContent').innerHTML=
+  `<h3>${r.i} ${r.n}</h3>
+   <p style="color:#718078">⏱ وقت التحضير: ${r.t} دقيقة</p>
+   <b>المكونات:</b>
+   <ul>${ingredients}</ul>
+   ${extraNote}
+   <b>طريقة التحضير بالتفصيل:</b>
+   <ol class="steps">
+    ${r.how.split('،').join('.').split('.').filter(x=>x.trim()).map(x=>`<li>${x.trim()}</li>`).join('')}
+   </ol>`;
+
+ document.getElementById('modal').classList.add('show');
 }
 
 function closeModal(){
-  document.getElementById('modal').classList.remove('show');
+ document.getElementById('modal').classList.remove('show');
 }
 
 document.addEventListener('click',e=>{
-  if(!e.target.closest('.suggest-wrap')){
-    document.getElementById('suggestions')?.classList.remove('show');
-  }
+ if(!e.target.closest('.suggest-wrap')){
+  document.getElementById('suggestions')?.classList.remove('show');
+ }
 });
 
-renderIngredients();
+// إتاحة الدوال على window لضمان عمل onclick على Safari وGitHub Pages
+window.renderIngredients=renderIngredients;
+window.toggle=toggle;
+window.suggestCustom=suggestCustom;
+window.chooseSuggestion=chooseSuggestion;
+window.addCustom=addCustom;
+window.generatePlan=generatePlan;
+window.showRecipe=showRecipe;
+window.closeModal=closeModal;
+
+function safeGeneratePlan(){
+ try{
+  if(!selected.size){
+   const daysBox=document.getElementById('days');
+   daysBox.innerHTML=
+    '<div class="empty plan-empty"><div class="empty-icon">🧺</div><strong>اختار مكون واحد على الأقل</strong><p>حدد المكونات المتاحة في مطبخك وبعدها اضغط إنشاء الجدول.</p></div>';
+   return;
+  }
+
+  generatePlan();
+ }catch(error){
+  console.error('Plan generation failed:',error);
+  const daysBox=document.getElementById('days');
+  daysBox.innerHTML=
+   '<div class="empty plan-empty"><div class="empty-icon">⚠️</div><strong>حصل خطأ أثناء إنشاء الجدول</strong><p>حدّث الصفحة وجرب مرة تانية. لو المشكلة استمرت، ابعتلي صورة رسالة الخطأ.</p></div>';
+ }
+}
+
+function initializeApp(){
+ renderIngredients();
+
+ const generateButton=document.getElementById('generatePlanBtn');
+ if(generateButton){
+  generateButton.addEventListener('click',function(event){
+   event.preventDefault();
+   safeGeneratePlan();
+  },{passive:false});
+ }
+}
+
+if(document.readyState==='loading'){
+ document.addEventListener('DOMContentLoaded',initializeApp,{once:true});
+}else{
+ initializeApp();
+}
 </script>
 </body>
 </html>

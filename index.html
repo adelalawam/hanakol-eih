@@ -1,130 +1,113 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#123b2d">
+<meta name="description" content="هناكل إيه؟">
 <title>هناكل إيه؟</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap');
-:root{--green:#14513c;--green2:#28775a;--mint:#e8f4ed;--cream:#faf9f5;--ink:#18251e;--muted:#718078;--line:#e7ebe6}
+:root{--green:#174b38;--green2:#23694d;--mint:#eaf4ed;--cream:#faf9f5;--ink:#18251e;--muted:#718078;--line:#e7ebe6;--orange:#e99a4b;--white:#fff;--shadow:0 12px 35px #193d2810;--lift-shadow:0 18px 34px #163c2b18}
 *{box-sizing:border-box}
-body{margin:0;background:var(--cream);color:var(--ink);font-family:'Cairo',sans-serif}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:'Cairo',system-ui,sans-serif}
 button,input{font:inherit}
 button{cursor:pointer;border:0}
 .app{max-width:1180px;margin:auto;padding:22px 24px 60px}
-.top{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:28px}
 .brand{display:flex;align-items:center;gap:12px}
-.logo{width:48px;height:48px;border-radius:16px;background:linear-gradient(145deg,#28775a,#103b2c);color:white;display:grid;place-items:center;font-size:25px;box-shadow:7px 9px 0 #0c3024,0 17px 25px #174b3840;transform:perspective(500px) rotateY(-13deg)}
-.brand h1{font-size:24px;margin:0;font-weight:900}
+.logo{width:48px;height:48px;border-radius:16px;background:var(--green);color:white;display:grid;place-items:center;font-size:25px;box-shadow:8px 10px 0 #0c3024,0 15px 22px #174b3835;transform:perspective(500px) rotateY(-13deg)}
+.brand h1{font-size:24px;margin:0;font-weight:900;line-height:1.2}
 .brand small{color:var(--muted);font-size:11px}
-.hero{background:linear-gradient(125deg,#123b2d,#23694d 65%,#438c68);color:white;border-radius:26px;padding:28px 30px;display:flex;align-items:center;justify-content:space-between;gap:20px;overflow:hidden;position:relative;box-shadow:0 18px 34px #153e2c30}
-.hero:after{content:'🍲';font-size:108px;opacity:.16;position:absolute;left:28px;bottom:-24px;animation:floatFood 4s ease-in-out infinite}
+.top-actions{display:flex;gap:9px}
+.pill{background:white;border:1px solid var(--line);border-radius:14px;padding:9px 14px;color:var(--green);font-weight:700}
+.hero{background:linear-gradient(115deg,#123b2d,#28684d);color:white;border-radius:26px;padding:28px 30px;display:flex;align-items:center;justify-content:space-between;gap:20px;overflow:hidden;position:relative;box-shadow:var(--shadow)}
+.hero:after{content:'🍲';font-size:108px;opacity:.16;position:absolute;left:28px;bottom:-24px;transform:rotate(-15deg);animation:floatFood 4s ease-in-out infinite;filter:drop-shadow(0 12px 8px #071b1250)}
 .hero h2{font-size:26px;margin:0 0 7px;font-weight:900}
 .hero p{margin:0;color:#d4e5da;font-size:14px}
 .hero .tag{display:inline-block;background:#ffffff20;border:1px solid #ffffff30;padding:5px 11px;border-radius:30px;font-size:11px;margin-bottom:10px}
-.hero button{background:#fff;color:var(--green);padding:12px 18px;border-radius:13px;font-weight:800;position:relative;z-index:1}
-.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;margin:18px 0 24px}
-.stat{background:white;border:1px solid var(--line);border-radius:17px;padding:14px 17px;display:flex;align-items:center;gap:12px;transform:perspective(700px) rotateX(2deg)}
+.hero button{background:#fff;color:var(--green);padding:12px 18px;border-radius:13px;font-weight:800;position:relative;z-index:1;white-space:nowrap}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin:18px 0 24px}
+.stat{background:white;border:1px solid var(--line);border-radius:17px;padding:14px 17px;display:flex;align-items:center;gap:12px;transition:transform .25s ease,box-shadow .25s ease;transform:perspective(700px) rotateX(2deg)}
 .stat .ico{width:40px;height:40px;border-radius:13px;background:var(--mint);display:grid;place-items:center;font-size:19px}
-.stat:nth-child(1) .ico{background:#f0edff}
-.stat:nth-child(2) .ico{background:#fff0e8}
 .stat strong{display:block;font-size:19px}
 .stat span{color:var(--muted);font-size:11px}
 .layout{display:grid;grid-template-columns:330px 1fr;gap:18px;align-items:start}
-.panel{background:white;border:1px solid var(--line);border-radius:21px;padding:20px;box-shadow:0 12px 30px #173d2a10,0 3px 0 #e5eee7}
+.panel{background:white;border:1px solid var(--line);border-radius:21px;padding:20px;box-shadow:var(--shadow);transition:transform .25s ease,box-shadow .25s ease}
+.panel:hover,.day:hover{transform:translateY(-3px);box-shadow:var(--lift-shadow)}
 .panel h3{margin:0 0 5px;font-size:17px}
 .sub{color:var(--muted);font-size:12px;margin:0 0 17px}
 .search{width:100%;border:1px solid var(--line);background:#fbfcfa;border-radius:12px;padding:11px 13px;outline:none;margin-bottom:13px}
 .search:focus{border-color:var(--green2)}
-.category{font-size:13px;color:var(--green);font-weight:900;margin:17px 0 10px}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{background:#f6f8f5;border:1px solid #e9eee9;border-radius:30px;padding:9px 12px;font-size:12px;color:#435148;transition:.2s}
-.chip:hover{transform:translateY(-3px);box-shadow:0 7px 13px #174b3820}
-.chip.active{background:linear-gradient(145deg,#28775a,#124330);border-color:var(--green);color:white;box-shadow:0 7px 0 #0e3829,0 13px 20px #174b3830;transform:translateY(-2px)}
-.selected{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px;min-height:25px}
-.selected .qtyrow{display:flex;align-items:center;gap:5px;background:linear-gradient(110deg,#eaf4ed,#f3f8f4);border:1px solid #e2eee5;box-shadow:0 4px 0 #e1ece4;color:var(--green);border-radius:15px;padding:9px 12px;font-size:12px;width:100%;justify-content:space-between}
-.qtyrow small{color:#52715f;white-space:nowrap}
-.stepper{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid #d6e6dc;border-radius:13px;padding:5px;box-shadow:0 3px 0 #dce9e0;direction:ltr}
-.stepper button{width:34px;height:34px;border-radius:10px;background:#eaf4ed;color:#17513b;font-size:22px;font-weight:900;display:grid;place-items:center;transition:transform .12s,background .12s}
+.category{font-size:12px;color:var(--green);font-weight:800;margin:12px 0 8px}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{background:#f6f8f5;border:1px solid #e9eee9;border-radius:30px;padding:7px 10px;font-size:11px;color:#435148;transition:transform .18s ease,background .18s ease,box-shadow .18s ease}
+.chip:hover{transform:translateY(-3px) scale(1.035);box-shadow:0 7px 13px #174b3820}
+.chip.active{background:var(--green);border-color:var(--green);color:white;box-shadow:0 5px 12px #174b3830}
+.selected{display:flex;flex-wrap:wrap;gap:6px;margin-top:13px;min-height:25px}
+.selected .qtyrow{display:flex;align-items:center;gap:5px;background:var(--mint);color:var(--green);border-radius:11px;padding:7px 9px;font-size:11px;width:100%;justify-content:space-between}
+.qtyrow small{color:#52715f}
+.stepper{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid #d6e6dc;border-radius:13px;padding:4px;box-shadow:0 3px 0 #dce9e0;direction:ltr}
+.stepper button{width:32px;height:32px;border-radius:9px;background:#eaf4ed;color:#17513b;font-size:21px;font-weight:900;display:grid;place-items:center;transition:transform .12s,background .12s}
 .stepper button:active{transform:scale(.88);background:#cde6d6}
-.stepper .step-value{min-width:30px;text-align:center;font-size:16px;color:#17291f}
-.addrow{display:flex;gap:8px;margin-top:16px;align-items:stretch}
+.stepper .step-value{min-width:28px;text-align:center;font-size:14px;color:#17291f}
+.addrow{display:flex;gap:7px;margin-top:13px;align-items:stretch}
 .suggest-wrap{position:relative;flex:1;min-width:0}
-.suggest-wrap input{width:100%;border:1px solid var(--line);border-radius:12px;padding:11px;font-size:12px}
-.addrow button{background:#eaf4ed;color:var(--green);border-radius:12px;padding:0 15px;font-weight:900}
+.suggest-wrap input{width:100%;border:1px solid var(--line);border-radius:10px;padding:9px;font-size:12px}
+.addrow button{background:#eaf4ed;color:var(--green);border-radius:10px;padding:0 13px;font-weight:800}
 .suggestions{position:absolute;z-index:8;top:calc(100% + 5px);right:0;left:0;background:white;border:1px solid #dfe9e1;border-radius:13px;box-shadow:0 14px 30px #173d2a20;overflow:hidden;display:none;max-height:230px;overflow-y:auto}
-.suggestions.show{display:block}
-.suggestion{width:100%;display:flex;justify-content:space-between;text-align:right;padding:10px 13px;background:white;color:var(--ink);border-bottom:1px solid #f0f3ef;font-size:12px}
-.suggestion:hover{background:var(--mint)}
-.primary{background:linear-gradient(135deg,#28775a,#123b2d);color:white;padding:15px 16px;border-radius:14px;font-weight:900;width:100%;margin-top:17px;box-shadow:0 7px 0 #0c3024,0 13px 22px #174b3830;transition:.2s;animation:softGlow 3.5s infinite}
-.primary:active{transform:translateY(4px);box-shadow:0 2px 0 #0c3024}
+.suggestions.show{display:block;animation:appearUp .16s ease}
+.suggestion{width:100%;display:flex;justify-content:space-between;align-items:center;text-align:right;padding:10px 13px;background:white;color:var(--ink);border-bottom:1px solid #f0f3ef;font-size:12px}
+.suggestion:last-child{border-bottom:0}
+.suggestion:hover{background:var(--mint);color:var(--green)}
+.suggestion small{color:var(--muted);font-size:10px}
+.primary{background:linear-gradient(135deg,#28775a,#123b2d);color:white;padding:14px 16px;border-radius:13px;font-weight:900;width:100%;margin-top:16px;box-shadow:0 7px 0 #0c3024,0 13px 22px #174b3830;transition:transform .2s ease,box-shadow .2s ease;animation:softGlow 3.5s ease-in-out infinite}
+.primary:hover{background:var(--green2)}
+.primary:active,.hero button:active{transform:scale(.97)}
 .content-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:13px;gap:12px}
 .content-head h3{margin:0;font-size:19px}
 .weeklabel{font-size:11px;color:var(--muted);background:white;border:1px solid var(--line);border-radius:30px;padding:7px 11px}
 .days{display:grid;gap:12px}
-.day{background:white;border:1px solid var(--line);border-radius:18px;padding:15px 16px;box-shadow:0 12px 25px #173d2a10;animation:appearUp .4s both}
-.day:nth-child(7n+1){border-top:4px solid #70aa89}
-.day:nth-child(7n+2){border-top:4px solid #e7b36e}
-.day:nth-child(7n+3){border-top:4px solid #9b91d4}
-.day:nth-child(7n+4){border-top:4px solid #79a9d5}
-.day:nth-child(7n+5){border-top:4px solid #df9b8c}
-.day:nth-child(7n+6){border-top:4px solid #8bb9ae}
-.day:nth-child(7n){border-top:4px solid #d4b56c}
+.day{background:white;border:1px solid var(--line);border-radius:18px;padding:15px 16px;box-shadow:var(--shadow);transition:transform .25s ease,box-shadow .25s ease;animation:appearUp .45s both}
 .daytop{display:flex;align-items:center;justify-content:space-between;margin-bottom:11px}
 .daytop strong{font-size:14px}
 .daytop small{font-size:10px;color:var(--muted)}
 .meals{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
-.meal{background:#fafbf9;border:1px solid #edf0ec;border-radius:13px;padding:10px;min-width:0;box-shadow:0 4px 0 #e8eee8;transition:.22s}
-.meal:nth-child(1){background:linear-gradient(145deg,#fff9e9,#fff)}
-.meal:nth-child(2){background:linear-gradient(145deg,#eaf5ed,#fff)}
-.meal:nth-child(3){background:linear-gradient(145deg,#f0edff,#fff)}
-.meal:hover{transform:perspective(650px) rotateX(4deg) translateY(-5px);box-shadow:0 14px 23px #173d2a20}
+.meal{background:#fafbf9;border:1px solid #edf0ec;border-radius:13px;padding:10px;min-width:0;transition:transform .22s ease,box-shadow .22s ease;transform-style:preserve-3d}
+.meal:hover{transform:perspective(600px) rotateX(3deg) translateY(-4px);box-shadow:0 12px 20px #173d2a16}
 .meal .kind{font-size:10px;color:var(--muted);margin-bottom:5px}
-.meal .name{font-size:12px;font-weight:900;line-height:1.55;min-height:37px}
+.meal .name{font-size:12px;font-weight:800;line-height:1.55;min-height:37px}
 .meal .meta{font-size:9px;color:var(--muted);margin-top:6px}
-.meal button{background:none;color:var(--green2);font-size:10px;padding:5px 0 0;font-weight:900}
-.meal .foodicon{font-size:19px;float:left;filter:drop-shadow(0 5px 3px #17291c30)}
+.meal button{background:none;color:var(--green2);font-size:10px;padding:5px 0 0;font-weight:800}
+.meal .foodicon{font-size:19px;float:left;filter:drop-shadow(0 5px 3px #17291c30);transform:translateZ(14px)}
 .tips-panel{margin-top:18px}
 .note{background:#fff7eb;border:1px solid #f5e7d2;color:#795a31;padding:11px 13px;border-radius:13px;font-size:11px;line-height:1.8;margin-top:13px}
 .empty{padding:30px;text-align:center;color:var(--muted);font-size:13px}
-.plan-empty{min-height:300px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(145deg,#fff,#f2f8f3);border:1px dashed #c9ddce;border-radius:22px}
+.plan-empty{min-height:300px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(145deg,#fff,#f2f8f3);border:1px dashed #c9ddce;border-radius:22px;box-shadow:inset 0 2px 10px #1b50320b}
 .plan-empty strong{font-size:17px;color:var(--green);margin:8px 0}
 .plan-empty p{max-width:390px;line-height:1.9;margin:0}
-.empty-icon{font-size:48px;animation:floatFood 3s ease-in-out infinite}
+.empty-icon{font-size:48px;filter:drop-shadow(0 8px 5px #193d2830);animation:floatFood 3s ease-in-out infinite}
+.steps{padding-right:22px;margin:8px 0 0}
+.steps li{padding:3px 0}
 .modalbg{position:fixed;inset:0;background:#10251dcc;display:none;align-items:center;justify-content:center;padding:18px;z-index:5}
 .modalbg.show{display:flex}
 .modal{background:white;border-radius:22px;padding:23px;max-width:470px;width:100%;max-height:85vh;overflow:auto}
 .modal h3{margin:0 0 6px}
 .modal p,.modal li{font-size:13px;line-height:1.9}
+.modal .steps li{margin:4px 0;padding-right:3px}
+.modal .steps li::marker{color:var(--green2);font-weight:900}
 .modal .close{float:left;background:#f0f4f0;border-radius:9px;padding:5px 10px}
-.steps{padding-right:22px}
 .footer{text-align:center;color:#9aa49d;font-size:10px;margin-top:28px}
 @keyframes floatFood{0%,100%{transform:translateY(0) rotate(-8deg)}50%{transform:translateY(-13px) rotate(5deg)}}
 @keyframes softGlow{0%,100%{box-shadow:0 10px 25px #174b3820}50%{box-shadow:0 15px 34px #174b3840}}
 @keyframes appearUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-@media(max-width:850px){.layout{grid-template-columns:1fr}.hero{padding:23px}.hero h2{font-size:22px}}
-@media(max-width:520px){
-.app{padding:14px 12px 40px}
-.hero{border-radius:20px;padding:20px 17px;align-items:flex-start;flex-direction:column}
-.hero:after{font-size:75px;left:8px}
-.stats{gap:8px}
-.stat{padding:10px;display:block;text-align:center}
-.stat .ico{margin:0 auto 5px;width:32px;height:32px;font-size:15px}
-.stat strong{font-size:15px}
-.stat span{font-size:9px}
-.panel{padding:16px}
-.meals{gap:5px}
-.meal{padding:8px 6px}
-.meal .name{font-size:11px}
-.day{padding:12px 9px}
-}
+@media(max-width:850px){.layout{grid-template-columns:1fr}.hero{padding:23px}.hero h2{font-size:22px}.stats{gap:8px}.stat{padding:10px}}
+@media(max-width:520px){.app{padding:14px 12px 40px}.top{margin-bottom:17px}.brand h1{font-size:20px}.top-actions .pill{padding:8px 10px;font-size:11px}.hero{border-radius:20px;padding:20px 17px;align-items:flex-start;flex-direction:column}.hero:after{font-size:75px;left:8px}.hero button{padding:10px 14px}.stats{grid-template-columns:repeat(3,1fr)}.stat{display:block;text-align:center}.stat .ico{margin:0 auto 5px;width:32px;height:32px;font-size:15px}.stat strong{font-size:15px}.stat span{font-size:9px}.panel{padding:16px}.meals{gap:5px}.meal{padding:8px 6px}.meal .name{font-size:11px}.meal .foodicon{font-size:16px}.day{padding:12px 9px}.daytop{padding:0 3px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
 <div class="app">
-
 <header class="top">
  <div class="brand">
   <div class="logo">🍽</div>
@@ -144,6 +127,7 @@ button{cursor:pointer;border:0}
 <div class="stats">
  <div class="stat"><div class="ico">🗓️</div><div><strong>7 أيام</strong><span>خطة أسبوعية</span></div></div>
  <div class="stat"><div class="ico">🍲</div><div><strong>21 وجبة</strong><span>فطار وغدا وعشا</span></div></div>
+ <div class="stat"><div class="ico">🧊</div><div><strong>مكوناتك</strong><span>حسب الموجود عندك</span></div></div>
 </div>
 
 <div class="layout">
@@ -152,7 +136,6 @@ button{cursor:pointer;border:0}
  <p class="sub">اختار المكونات واكتب الكمية المتاحة من كل حاجة</p>
  <input class="search" id="filter" placeholder="دوّر على مكون..." oninput="renderIngredients()">
 
- <!-- المكونات موجودة هنا في HTML من البداية، حتى قبل تشغيل JavaScript -->
  <div id="ingredientList">
   <div class="category">🥚 ألبان وبيض</div>
   <div class="chips">
@@ -214,20 +197,7 @@ button{cursor:pointer;border:0}
   </div>
  </div>
 
- <div class="selected" id="selected">
-  <div class="qtyrow"><b>بيض</b><span><div class="stepper"><button onclick="changeQty('بيض',-1)">−</button><strong class="step-value">6</strong><button onclick="changeQty('بيض',1)">+</button></div><small>بيضة</small></span></div>
-  <div class="qtyrow"><b>طماطم</b><span><div class="stepper"><button onclick="changeQty('طماطم',-1)">−</button><strong class="step-value">1</strong><button onclick="changeQty('طماطم',1)">+</button></div><small>كيلو</small></span></div>
-  <div class="qtyrow"><b>بطاطس</b><span><div class="stepper"><button onclick="changeQty('بطاطس',-1)">−</button><strong class="step-value">1</strong><button onclick="changeQty('بطاطس',1)">+</button></div><small>كيلو</small></span></div>
-  <div class="qtyrow"><b>فراخ</b><span><div class="stepper"><button onclick="changeQty('فراخ',-1)">−</button><strong class="step-value">1</strong><button onclick="changeQty('فراخ',1)">+</button></div><small>كيلو</small></span></div>
-  <div class="qtyrow"><b>رز</b><span><div class="stepper"><button onclick="changeQty('رز',-1)">−</button><strong class="step-value">1</strong><button onclick="changeQty('رز',1)">+</button></div><small>كيلو</small></span></div>
-  <div class="qtyrow"><b>مكرونة</b><span><div class="stepper"><button onclick="changeQty('مكرونة',-1)">−</button><strong class="step-value">1</strong><button onclick="changeQty('مكرونة',1)">+</button></div><small>كيلو</small></span></div>
-  <div class="qtyrow"><b>بصل</b><span><div class="stepper"><button onclick="changeQty('بصل',-1)">−</button><strong class="step-value">1</strong><button onclick="changeQty('بصل',1)">+</button></div><small>كيلو</small></span></div>
-  <div class="qtyrow"><b>جبنة بيضاء</b><span><div class="stepper"><button onclick="changeQty('جبنة بيضاء',-1)">−</button><strong class="step-value">1</strong><button onclick="changeQty('جبنة بيضاء',1)">+</button></div><small>كيلو</small></span></div>
-  <div class="qtyrow"><b>زبادي</b><span><div class="stepper"><button onclick="changeQty('زبادي',-1)">−</button><strong class="step-value">1</strong><button onclick="changeQty('زبادي',1)">+</button></div><small>كيلو</small></span></div>
-  <div class="qtyrow"><b>خيار</b><span><div class="stepper"><button onclick="changeQty('خيار',-1)">−</button><strong class="step-value">1</strong><button onclick="changeQty('خيار',1)">+</button></div><small>كيلو</small></span></div>
-  <div class="qtyrow"><b>فول</b><span><div class="stepper"><button onclick="changeQty('فول',-1)">−</button><strong class="step-value">1</strong><button onclick="changeQty('فول',1)">+</button></div><small>كيلو</small></span></div>
-  <div class="qtyrow"><b>عيش بلدي</b><span><div class="stepper"><button onclick="changeQty('عيش بلدي',-1)">−</button><strong class="step-value">6</strong><button onclick="changeQty('عيش بلدي',1)">+</button></div><small>رغيف</small></span></div>
- </div>
+ <div class="selected" id="selected"></div>
 
  <div class="addrow">
   <div class="suggest-wrap">
@@ -236,6 +206,7 @@ button{cursor:pointer;border:0}
   </div>
   <button onclick="addCustom()">+ إضافة</button>
  </div>
+
  <button class="primary" onclick="generatePlan()">✨ اعملي جدول الأسبوع</button>
 </aside>
 
@@ -244,6 +215,7 @@ button{cursor:pointer;border:0}
   <h3>📅 جدول أكلك الأسبوعي</h3>
   <span class="weeklabel" id="weekLabel">لم يتم إنشاء الجدول بعد</span>
  </div>
+
  <div class="days" id="days">
   <div class="empty plan-empty">
    <div class="empty-icon">🍽️</div>
@@ -282,6 +254,8 @@ button{cursor:pointer;border:0}
 </div>
 
 <script>
+'use strict';
+
 const groups={
 '🥚 ألبان وبيض':['بيض','جبنة بيضاء','جبنة رومي','جبنة قريش','لبن','زبادي','زبدة'],
 '🍗 بروتين':['فراخ','لحمة مفرومة','لحمة مكعبات','سمك','تونة','كبدة','سجق'],
@@ -301,10 +275,12 @@ function unitFor(x){
  if(['عيش بلدي','عيش توست'].includes(x))return 'رغيف';
  return 'كيلو';
 }
+
 function defaultQty(x){
  if(unitFor(x)==='بيضة'||unitFor(x)==='رغيف')return 6;
  return 1;
 }
+
 function amountFor(x){
  if(x==='بيض')return 1;
  if(['عيش بلدي','عيش توست'].includes(x))return 1;
@@ -316,11 +292,15 @@ function amountFor(x){
  if(['بطاطس','طماطم','خيار','بصل','جزر','كوسة','باذنجان','فلفل','سبانخ','ملوخية','بسلة','ليمون','ثوم'].includes(x))return .1;
  return .03;
 }
+
 function requiredFor(x){
  let total=0;
- currentPlan.flatMap(d=>d.meals).forEach(r=>{if(r.need.includes(x))total+=amountFor(x)});
+ currentPlan.flatMap(d=>d.meals).forEach(r=>{
+  if(r.need.includes(x))total+=amountFor(x);
+ });
  return total;
 }
+
 function renderShopping(){
  const all=[...new Set(currentPlan.flatMap(d=>d.meals.flatMap(r=>r.need)))];
  const missing=all.map(x=>({
@@ -336,6 +316,7 @@ function renderShopping(){
   if(unit==='لتر'&&amount<1)return `${fmt(Math.round(amount*1000))} مل`;
   return `${fmt(amount)} ${unit}`;
  };
+
  document.getElementById('shopping').innerHTML=missing.length
  ? `<div class="note">محتاج تشتري ${missing.length} مكون علشان تكمل جدول الأسبوع.</div>
  <ul style="padding-right:20px;line-height:2">${missing.map(r=>`<li><b>${r.x}</b> — الناقص ${shortageText(Math.max(0,r.req-r.have),r.unit)}</li>`).join('')}</ul>
@@ -346,21 +327,29 @@ function renderShopping(){
 function renderIngredients(){
  const q=document.getElementById('filter').value.trim();
  let h='';
+
  Object.entries(groups).forEach(([g,items])=>{
   const a=items.filter(x=>x.includes(q));
   if(!a.length)return;
+
   h+=`<div class="category">${g}</div><div class="chips">`+
-  a.map(x=>`<button class="chip ${selected.has(x)?'active':''}" onclick="toggle('${x}')">${x}</button>`).join('')+
+  a.map(x=>`<button type="button" class="chip ${selected.has(x)?'active':''}" onclick="toggle('${x}')">${x}</button>`).join('')+
   '</div>';
  });
+
  if(custom.length){
-  h+='<div class="category">✨ مكوناتك الخاصة</div><div class="chips">'+
-  custom.map(x=>`<button class="chip ${selected.has(x)?'active':''}" onclick="toggle('${x}')">${x}</button>`).join('')+
-  '</div>';
+  const customMatches=custom.filter(x=>x.includes(q));
+  if(customMatches.length){
+   h+='<div class="category">✨ مكوناتك الخاصة</div><div class="chips">'+
+   customMatches.map(x=>`<button type="button" class="chip ${selected.has(x)?'active':''}" onclick="toggle('${x}')">${x}</button>`).join('')+
+   '</div>';
+  }
  }
+
  document.getElementById('ingredientList').innerHTML=h||'<div class="empty">مش لاقي المكون ده</div>';
- document.getElementById('selected').innerHTML=[...selected].map(x=>{
-  return `<div class="qtyrow">
+
+ document.getElementById('selected').innerHTML=[...selected].map(x=>`
+  <div class="qtyrow">
    <b>${x}</b>
    <span>
     <div class="stepper">
@@ -370,9 +359,9 @@ function renderIngredients(){
     </div>
     <small>${unitFor(x)}</small>
    </span>
-  </div>`;
- }).join('');
+  </div>`).join('');
 }
+
 function changeQty(x,delta){
  const current=Number(quantities[x]??defaultQty(x));
  const next=Math.max(0,Math.round((current+delta)*100)/100);
@@ -381,25 +370,44 @@ function changeQty(x,delta){
  if(value)value.textContent=next;
  if(currentPlan.length)renderShopping();
 }
+
 function toggle(x){
- if(selected.has(x))selected.delete(x);
- else{selected.add(x);if(quantities[x]===undefined)quantities[x]=defaultQty(x)}
+ if(selected.has(x)){
+  selected.delete(x);
+ }else{
+  selected.add(x);
+  if(quantities[x]===undefined)quantities[x]=defaultQty(x);
+ }
  renderIngredients();
 }
+
 function suggestCustom(){
  const input=document.getElementById('customIngredient');
  const box=document.getElementById('suggestions');
  const q=input.value.trim();
- if(!q){box.classList.remove('show');box.innerHTML='';return}
+
+ if(!q){
+  box.classList.remove('show');
+  box.innerHTML='';
+  return;
+ }
+
  const all=[...new Set([...Object.values(groups).flat(),...custom])];
  const matches=all.filter(x=>x.includes(q)&&!selected.has(x)).slice(0,7);
+
  if(!matches.length){
   box.innerHTML='<div class="suggestion">مفيش اقتراح مطابق — اضغط إضافة لإضافته كمكون جديد</div>';
-  box.classList.add('show');return;
+  box.classList.add('show');
+  return;
  }
- box.innerHTML=matches.map(x=>`<button type="button" class="suggestion" onclick="chooseSuggestion('${x}')"><span>${x}</span><small>اضغط للاختيار</small></button>`).join('');
+
+ box.innerHTML=matches.map(x=>
+  `<button type="button" class="suggestion" onclick="chooseSuggestion('${x.replace(/'/g,"\\'")}')"><span>${x}</span><small>اضغط للاختيار</small></button>`
+ ).join('');
+
  box.classList.add('show');
 }
+
 function chooseSuggestion(x){
  selected.add(x);
  if(quantities[x]===undefined)quantities[x]=defaultQty(x);
@@ -407,15 +415,23 @@ function chooseSuggestion(x){
  document.getElementById('suggestions').classList.remove('show');
  renderIngredients();
 }
+
 function addCustom(){
- const x=document.getElementById('customIngredient').value.trim();
+ const input=document.getElementById('customIngredient');
+ const x=input.value.trim();
  if(!x)return;
+
  const known=[...Object.values(groups).flat(),...custom].find(v=>v===x);
- if(known){chooseSuggestion(known);return}
+
+ if(known){
+  chooseSuggestion(known);
+  return;
+ }
+
  if(!custom.includes(x))custom.push(x);
  selected.add(x);
  quantities[x]=quantities[x]??defaultQty(x);
- document.getElementById('customIngredient').value='';
+ input.value='';
  document.getElementById('suggestions').classList.remove('show');
  renderIngredients();
 }
@@ -476,7 +492,7 @@ function renderPlan(){
     <div class="foodicon">${m.i}</div>
     <div class="name">${m.n}</div>
     <div class="meta">⏱ ${m.t} دقيقة</div>
-    <button onclick="showRecipe(${di},${mi})">طريقة التحضير ←</button>
+    <button type="button" onclick="showRecipe(${di},${mi})">طريقة التحضير ←</button>
    </div>`).join('')}
   </div>
  </section>`).join('');
@@ -494,12 +510,29 @@ function showRecipe(d,m){
  <p style="color:#718078;font-size:11px">المقادير تقديرية، وتقدر تراجع الكميات حسب احتياج البيت.</p>`;
  document.getElementById('modal').classList.add('show');
 }
-function closeModal(){document.getElementById('modal').classList.remove('show')}
+
+function closeModal(){
+ document.getElementById('modal').classList.remove('show');
+}
+
 document.addEventListener('click',e=>{
- if(!e.target.closest('.suggest-wrap'))document.getElementById('suggestions')?.classList.remove('show');
+ if(!e.target.closest('.suggest-wrap')){
+  document.getElementById('suggestions')?.classList.remove('show');
+ }
 });
 
-// تشغيل أولي آمن: قائمة المكونات موجودة بالفعل في HTML.
+/* ربط الدوال مباشرة بالـ window لتعمل أزرار onclick على Safari وGitHub Pages */
+window.renderIngredients=renderIngredients;
+window.changeQty=changeQty;
+window.toggle=toggle;
+window.suggestCustom=suggestCustom;
+window.chooseSuggestion=chooseSuggestion;
+window.addCustom=addCustom;
+window.generatePlan=generatePlan;
+window.showRecipe=showRecipe;
+window.closeModal=closeModal;
+
+/* تشغيل أولي */
 if(document.readyState==='loading'){
  document.addEventListener('DOMContentLoaded',renderIngredients,{once:true});
 }else{

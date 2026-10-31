@@ -19,16 +19,14 @@ button{cursor:pointer;border:0}
 .logo{width:48px;height:48px;border-radius:16px;background:var(--green);color:white;display:grid;place-items:center;font-size:25px;box-shadow:8px 10px 0 #0c3024,0 15px 22px #174b3835;transform:perspective(500px) rotateY(-13deg)}
 .brand h1{font-size:24px;margin:0;font-weight:900;line-height:1.2}
 .brand small{color:var(--muted);font-size:11px}
-.top-actions{display:flex;gap:9px}
-.pill{background:white;border:1px solid var(--line);border-radius:14px;padding:9px 14px;color:var(--green);font-weight:700}
 .hero{background:linear-gradient(115deg,#123b2d,#28684d);color:white;border-radius:26px;padding:28px 30px;display:flex;align-items:center;justify-content:space-between;gap:20px;overflow:hidden;position:relative;box-shadow:var(--shadow)}
 .hero:after{content:'🍲';font-size:108px;opacity:.16;position:absolute;left:28px;bottom:-24px;transform:rotate(-15deg);animation:floatFood 4s ease-in-out infinite;filter:drop-shadow(0 12px 8px #071b1250)}
 .hero h2{font-size:26px;margin:0 0 7px;font-weight:900}
 .hero p{margin:0;color:#d4e5da;font-size:14px}
 .hero .tag{display:inline-block;background:#ffffff20;border:1px solid #ffffff30;padding:5px 11px;border-radius:30px;font-size:11px;margin-bottom:10px}
 .hero button{background:#fff;color:var(--green);padding:12px 18px;border-radius:13px;font-weight:800;position:relative;z-index:1;white-space:nowrap}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin:18px 0 24px}
-.stat{background:white;border:1px solid var(--line);border-radius:17px;padding:14px 17px;display:flex;align-items:center;gap:12px;transition:transform .25s ease,box-shadow .25s ease;transform:perspective(700px) rotateX(2deg)}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:13px;margin:18px 0 24px}
+.stat{background:white;border:1px solid var(--line);border-radius:17px;padding:14px 17px;display:flex;align-items:center;gap:12px;transition:.25s;transform:perspective(700px) rotateX(2deg)}
 .stat .ico{width:40px;height:40px;border-radius:13px;background:var(--mint);display:grid;place-items:center;font-size:19px}
 .stat strong{display:block;font-size:19px}
 .stat span{color:var(--muted);font-size:11px}
@@ -46,22 +44,23 @@ button{cursor:pointer;border:0}
 .chip.active{background:var(--green);border-color:var(--green);color:white;box-shadow:0 5px 12px #174b3830}
 .selected{display:flex;flex-wrap:wrap;gap:6px;margin-top:13px;min-height:25px}
 .selected .qtyrow{display:flex;align-items:center;gap:5px;background:var(--mint);color:var(--green);border-radius:11px;padding:7px 9px;font-size:11px;width:100%;justify-content:space-between}
-.qtyrow small{color:#52715f}
-.stepper{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid #d6e6dc;border-radius:13px;padding:4px;box-shadow:0 3px 0 #dce9e0;direction:ltr}
-.stepper button{width:32px;height:32px;border-radius:9px;background:#eaf4ed;color:#17513b;font-size:21px;font-weight:900;display:grid;place-items:center;transition:transform .12s,background .12s}
-.stepper button:active{transform:scale(.88);background:#cde6d6}
-.stepper .step-value{min-width:28px;text-align:center;font-size:14px;color:#17291f}
-.addrow{display:flex;gap:7px;margin-top:13px;align-items:stretch}
-.suggest-wrap{position:relative;flex:1;min-width:0}
-.suggest-wrap input{width:100%;border:1px solid var(--line);border-radius:10px;padding:9px;font-size:12px}
+.qtyrow small{color:#52715f;font-size:10px}
+.stepper{display:inline-flex;align-items:center;gap:9px;direction:ltr;background:#fff;border:1px solid #d8e6dc;border-radius:9px;padding:3px 6px}
+.stepper button{width:25px;height:25px;border-radius:7px;background:var(--green);color:#fff;font-weight:900;font-size:17px;line-height:1}
+.stepper button:active{background:#d94c45;transform:scale(.94)}
+.step-value{min-width:20px;text-align:center;font-size:12px;color:var(--ink)}
+.addrow{display:flex;gap:7px;margin-top:13px}
+.addrow input{min-width:0;flex:1;border:1px solid var(--line);border-radius:10px;padding:9px;font-size:12px}
 .addrow button{background:#eaf4ed;color:var(--green);border-radius:10px;padding:0 13px;font-weight:800}
+.suggest-wrap{position:relative;flex:1;min-width:0}
+.suggest-wrap input{width:100%}
 .suggestions{position:absolute;z-index:8;top:calc(100% + 5px);right:0;left:0;background:white;border:1px solid #dfe9e1;border-radius:13px;box-shadow:0 14px 30px #173d2a20;overflow:hidden;display:none;max-height:230px;overflow-y:auto}
 .suggestions.show{display:block;animation:appearUp .16s ease}
 .suggestion{width:100%;display:flex;justify-content:space-between;align-items:center;text-align:right;padding:10px 13px;background:white;color:var(--ink);border-bottom:1px solid #f0f3ef;font-size:12px}
 .suggestion:last-child{border-bottom:0}
 .suggestion:hover{background:var(--mint);color:var(--green)}
 .suggestion small{color:var(--muted);font-size:10px}
-.primary{background:linear-gradient(135deg,#28775a,#123b2d);color:white;padding:14px 16px;border-radius:13px;font-weight:900;width:100%;margin-top:16px;box-shadow:0 7px 0 #0c3024,0 13px 22px #174b3830;transition:transform .2s ease,box-shadow .2s ease;animation:softGlow 3.5s ease-in-out infinite}
+.primary{background:var(--green);color:white;padding:13px 16px;border-radius:13px;font-weight:800;width:100%;margin-top:16px;box-shadow:0 7px 16px #174b3820;transition:transform .2s ease,box-shadow .2s ease;animation:softGlow 3.5s ease-in-out infinite}
 .primary:hover{background:var(--green2)}
 .primary:active,.hero button:active{transform:scale(.97)}
 .content-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:13px;gap:12px}
@@ -102,32 +101,23 @@ button{cursor:pointer;border:0}
 @keyframes softGlow{0%,100%{box-shadow:0 10px 25px #174b3820}50%{box-shadow:0 15px 34px #174b3840}}
 @keyframes appearUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:850px){.layout{grid-template-columns:1fr}.hero{padding:23px}.hero h2{font-size:22px}.stats{gap:8px}.stat{padding:10px}}
-@media(max-width:520px){.app{padding:14px 12px 40px}.top{margin-bottom:17px}.brand h1{font-size:20px}.top-actions .pill{padding:8px 10px;font-size:11px}.hero{border-radius:20px;padding:20px 17px;align-items:flex-start;flex-direction:column}.hero:after{font-size:75px;left:8px}.hero button{padding:10px 14px}.stats{grid-template-columns:repeat(3,1fr)}.stat{display:block;text-align:center}.stat .ico{margin:0 auto 5px;width:32px;height:32px;font-size:15px}.stat strong{font-size:15px}.stat span{font-size:9px}.panel{padding:16px}.meals{gap:5px}.meal{padding:8px 6px}.meal .name{font-size:11px}.meal .foodicon{font-size:16px}.day{padding:12px 9px}.daytop{padding:0 3px}}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+@media(max-width:520px){.app{padding:14px 12px 40px}.top{margin-bottom:17px}.brand h1{font-size:20px}.hero{border-radius:20px;padding:20px 17px;align-items:flex-start;flex-direction:column}.hero:after{font-size:75px;left:8px}.hero button{padding:10px 14px}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.stat{padding:10px}.stat .ico{width:32px;height:32px;font-size:15px}.stat strong{font-size:15px}.stat span{font-size:9px}.panel{padding:16px}.meals{gap:5px}.meal{padding:8px 6px}.meal .name{font-size:11px}.meal .foodicon{font-size:16px}.day{padding:12px 9px}.daytop{padding:0 3px}}
 </style>
 </head>
 <body>
 <div class="app">
 <header class="top">
- <div class="brand">
-  <div class="logo">🍽</div>
-  <div><h1>هناكل إيه؟</h1><small>خطّط أكلك من الموجود في مطبخك</small></div>
- </div>
+ <div class="brand"><div class="logo">🍽</div><div><h1>هناكل إيه؟</h1><small>خطّط أكلك من الموجود في مطبخك</small></div></div>
 </header>
 
 <section class="hero">
- <div>
-  <span class="tag">مطبخ مصري • تخطيط أسبوعي</span>
-  <h2>كل يوم هتاكل إيه؟ سيبها علينا 👨‍🍳</h2>
-  <p>اختار الموجود في التلاجة، وإحنا نرتبلك أسبوع كامل من الأكل البيتي.</p>
- </div>
- <button onclick="document.getElementById('fridge').scrollIntoView({behavior:'smooth'})">اختار مكوناتك ←</button>
+ <div><span class="tag">مطبخ مصري • تخطيط أسبوعي</span><h2>كل يوم هتاكل إيه؟ سيبها علينا 👨‍🍳</h2><p>اختار الموجود في التلاجة، وإحنا نرتبلك أسبوع كامل من الأكل البيتي.</p></div>
+ <button type="button" onclick="document.getElementById('fridge').scrollIntoView({behavior:'smooth'})">اختار مكوناتك ←</button>
 </section>
 
 <div class="stats">
  <div class="stat"><div class="ico">🗓️</div><div><strong>7 أيام</strong><span>خطة أسبوعية</span></div></div>
  <div class="stat"><div class="ico">🍲</div><div><strong>21 وجبة</strong><span>فطار وغدا وعشا</span></div></div>
- <div class="stat"><div class="ico">🧊</div><div><strong>مكوناتك</strong><span>حسب الموجود عندك</span></div></div>
 </div>
 
 <div class="layout">
@@ -135,101 +125,28 @@ button{cursor:pointer;border:0}
  <h3>🧊 إيه الموجود في المطبخ؟</h3>
  <p class="sub">اختار المكونات واكتب الكمية المتاحة من كل حاجة</p>
  <input class="search" id="filter" placeholder="دوّر على مكون..." oninput="renderIngredients()">
-
- <div id="ingredientList">
-  <div class="category">🥚 ألبان وبيض</div>
-  <div class="chips">
-   <button class="chip active" onclick="toggle('بيض')">بيض</button>
-   <button class="chip active" onclick="toggle('جبنة بيضاء')">جبنة بيضاء</button>
-   <button class="chip" onclick="toggle('جبنة رومي')">جبنة رومي</button>
-   <button class="chip" onclick="toggle('جبنة قريش')">جبنة قريش</button>
-   <button class="chip" onclick="toggle('لبن')">لبن</button>
-   <button class="chip active" onclick="toggle('زبادي')">زبادي</button>
-   <button class="chip" onclick="toggle('زبدة')">زبدة</button>
-  </div>
-  <div class="category">🍗 بروتين</div>
-  <div class="chips">
-   <button class="chip active" onclick="toggle('فراخ')">فراخ</button>
-   <button class="chip" onclick="toggle('لحمة مفرومة')">لحمة مفرومة</button>
-   <button class="chip" onclick="toggle('لحمة مكعبات')">لحمة مكعبات</button>
-   <button class="chip" onclick="toggle('سمك')">سمك</button>
-   <button class="chip" onclick="toggle('تونة')">تونة</button>
-   <button class="chip" onclick="toggle('كبدة')">كبدة</button>
-   <button class="chip" onclick="toggle('سجق')">سجق</button>
-  </div>
-  <div class="category">🥬 خضار</div>
-  <div class="chips">
-   <button class="chip active" onclick="toggle('طماطم')">طماطم</button>
-   <button class="chip active" onclick="toggle('خيار')">خيار</button>
-   <button class="chip active" onclick="toggle('بطاطس')">بطاطس</button>
-   <button class="chip active" onclick="toggle('بصل')">بصل</button>
-   <button class="chip" onclick="toggle('ثوم')">ثوم</button>
-   <button class="chip" onclick="toggle('فلفل')">فلفل</button>
-   <button class="chip" onclick="toggle('جزر')">جزر</button>
-   <button class="chip" onclick="toggle('كوسة')">كوسة</button>
-   <button class="chip" onclick="toggle('باذنجان')">باذنجان</button>
-   <button class="chip" onclick="toggle('ملوخية')">ملوخية</button>
-   <button class="chip" onclick="toggle('بسلة')">بسلة</button>
-   <button class="chip" onclick="toggle('سبانخ')">سبانخ</button>
-   <button class="chip" onclick="toggle('ليمون')">ليمون</button>
-  </div>
-  <div class="category">🍚 أساسيات</div>
-  <div class="chips">
-   <button class="chip active" onclick="toggle('رز')">رز</button>
-   <button class="chip active" onclick="toggle('مكرونة')">مكرونة</button>
-   <button class="chip active" onclick="toggle('عيش بلدي')">عيش بلدي</button>
-   <button class="chip" onclick="toggle('عيش توست')">عيش توست</button>
-   <button class="chip" onclick="toggle('دقيق')">دقيق</button>
-   <button class="chip" onclick="toggle('شوفان')">شوفان</button>
-   <button class="chip" onclick="toggle('عدس')">عدس</button>
-   <button class="chip active" onclick="toggle('فول')">فول</button>
-   <button class="chip" onclick="toggle('حمص')">حمص</button>
-   <button class="chip" onclick="toggle('فاصوليا')">فاصوليا</button>
-  </div>
-  <div class="category">🧂 إضافات</div>
-  <div class="chips">
-   <button class="chip" onclick="toggle('زيت')">زيت</button>
-   <button class="chip" onclick="toggle('صلصة طماطم')">صلصة طماطم</button>
-   <button class="chip" onclick="toggle('طحينة')">طحينة</button>
-   <button class="chip" onclick="toggle('عسل')">عسل</button>
-   <button class="chip" onclick="toggle('مربى')">مربى</button>
-   <button class="chip" onclick="toggle('تمر')">تمر</button>
-  </div>
- </div>
-
+ <div id="ingredientList"></div>
  <div class="selected" id="selected"></div>
-
  <div class="addrow">
   <div class="suggest-wrap">
    <input id="customIngredient" autocomplete="off" placeholder="اكتب اسم المكون..." oninput="suggestCustom()" onkeydown="if(event.key==='Enter'){event.preventDefault();addCustom()}">
    <div id="suggestions" class="suggestions"></div>
   </div>
-  <button onclick="addCustom()">+ إضافة</button>
+  <button type="button" onclick="addCustom()">+ إضافة</button>
  </div>
-
- <button class="primary" onclick="generatePlan()">✨ اعملي جدول الأسبوع</button>
+ <button class="primary" id="generatePlanBtn" type="button">✨ اعملي جدول الأسبوع</button>
 </aside>
 
 <main>
- <div class="content-head">
-  <h3>📅 جدول أكلك الأسبوعي</h3>
-  <span class="weeklabel" id="weekLabel">لم يتم إنشاء الجدول بعد</span>
- </div>
-
+ <div class="content-head"><h3>📅 جدول أكلك الأسبوعي</h3><span class="weeklabel" id="weekLabel">لم يتم إنشاء الجدول بعد</span></div>
  <div class="days" id="days">
-  <div class="empty plan-empty">
-   <div class="empty-icon">🍽️</div>
-   <strong>جدول الأسبوع لسه مستني اختياراتك</strong>
-   <p>اختار المكونات المتاحة، وبعدها اضغط «اعملي جدول الأسبوع» علشان نجهزلك 21 وجبة.</p>
-  </div>
+  <div class="empty plan-empty"><div class="empty-icon">🍽️</div><strong>جدول الأسبوع لسه مستني اختياراتك</strong><p>اختار المكونات المتاحة، وبعدها اضغط «اعملي جدول الأسبوع» علشان نجهزلك 21 وجبة.</p></div>
  </div>
-
  <section class="panel tips-panel" id="shortages" style="display:none">
   <h3>🧾 النواقص</h3>
   <p class="sub">المكونات والكميات اللي ناقصة علشان تنفّذ جدول الأسبوع</p>
   <div id="shopping"></div>
  </section>
-
  <section class="panel tips-panel">
   <h3>💚 نصايح أكل البيت</h3>
   <p class="sub">تخطيط أذكى ومجهود أقل</p>
@@ -242,15 +159,11 @@ button{cursor:pointer;border:0}
  </section>
 </main>
 </div>
-
 <div class="footer">هناكل إيه؟ © 2026 — معمول بحب للأكل البيتي المصري ❤️</div>
 </div>
 
 <div class="modalbg" id="modal" onclick="if(event.target===this)closeModal()">
- <div class="modal">
-  <button class="close" onclick="closeModal()">إغلاق ✕</button>
-  <div id="modalContent"></div>
- </div>
+ <div class="modal"><button class="close" type="button" onclick="closeModal()">إغلاق ✕</button><div id="modalContent"></div></div>
 </div>
 
 <script>
@@ -275,93 +188,63 @@ function unitFor(x){
  if(['عيش بلدي','عيش توست'].includes(x))return 'رغيف';
  return 'كيلو';
 }
-
 function defaultQty(x){
- if(unitFor(x)==='بيضة'||unitFor(x)==='رغيف')return 6;
+ const u=unitFor(x);
+ if(u==='بيضة'||u==='رغيف')return 6;
  return 1;
 }
-
 function amountFor(x){
  if(x==='بيض')return 1;
  if(['عيش بلدي','عيش توست'].includes(x))return 1;
  if(['لبن','زيت','صلصة طماطم','عسل'].includes(x))return .05;
- if(['فراخ','سمك'].includes(x))return .18;
+ if(['فراخ','سمك'])return .18;
  if(['لحمة مفرومة','لحمة مكعبات','كبدة','سجق','تونة'].includes(x))return .15;
  if(['رز','مكرونة','عدس','فول','حمص','فاصوليا','شوفان','دقيق'].includes(x))return .09;
  if(['جبنة بيضاء','جبنة رومي','جبنة قريش','زبادي','زبدة','طحينة'].includes(x))return .075;
  if(['بطاطس','طماطم','خيار','بصل','جزر','كوسة','باذنجان','فلفل','سبانخ','ملوخية','بسلة','ليمون','ثوم'].includes(x))return .1;
  return .03;
 }
-
 function requiredFor(x){
  let total=0;
- currentPlan.flatMap(d=>d.meals).forEach(r=>{
-  if(r.need.includes(x))total+=amountFor(x);
- });
+ currentPlan.flatMap(d=>d.meals).forEach(r=>{if(r.need.includes(x))total+=amountFor(x)});
  return total;
 }
-
 function renderShopping(){
  const all=[...new Set(currentPlan.flatMap(d=>d.meals.flatMap(r=>r.need)))];
- const missing=all.map(x=>({
-  x,
-  req:requiredFor(x),
-  have:selected.has(x)?Number(quantities[x]??defaultQty(x)):0,
-  unit:unitFor(x)
- })).filter(r=>r.have<r.req);
-
+ const missing=all.map(x=>({x,req:requiredFor(x),have:selected.has(x)?Number(quantities[x]??defaultQty(x)):0,unit:unitFor(x)})).filter(r=>r.have<r.req);
  const fmt=n=>Number.isInteger(n)?String(n):n.toFixed(2).replace(/0+$/,'').replace(/\.$/,'');
  const shortageText=(amount,unit)=>{
   if(unit==='كيلو'&&amount<1)return `${fmt(Math.round(amount*1000))} جرام`;
   if(unit==='لتر'&&amount<1)return `${fmt(Math.round(amount*1000))} مل`;
   return `${fmt(amount)} ${unit}`;
  };
-
  document.getElementById('shopping').innerHTML=missing.length
- ? `<div class="note">محتاج تشتري ${missing.length} مكون علشان تكمل جدول الأسبوع.</div>
- <ul style="padding-right:20px;line-height:2">${missing.map(r=>`<li><b>${r.x}</b> — الناقص ${shortageText(Math.max(0,r.req-r.have),r.unit)}</li>`).join('')}</ul>
- <small style="color:#718078">المقادير تقديرية للوصفات. الكميات في قائمة المطبخ بالكيلو واللتر، والنواقص الأقل من كيلو أو لتر بتظهر بالجرام أو الملليلتر.</small>`
+ ? `<div class="note">محتاج تشتري ${missing.length} مكون علشان تكمل جدول الأسبوع.</div><ul style="padding-right:20px;line-height:2">${missing.map(r=>`<li><b>${r.x}</b> — الناقص ${shortageText(Math.max(0,r.req-r.have),r.unit)}</li>`).join('')}</ul><small style="color:#718078">المقادير تقديرية للوصفات. الكميات في قائمة المطبخ بالكيلو واللتر، والنواقص الأقل من كيلو أو لتر بتظهر بالجرام أو الملليلتر.</small>`
  : '<div class="empty">🎉 مفيش نواقص حسب الكميات اللي سجلتها.</div>';
 }
 
 function renderIngredients(){
- const q=document.getElementById('filter').value.trim();
+ const filter=document.getElementById('filter');
+ const q=filter?filter.value.trim():'';
  let h='';
-
  Object.entries(groups).forEach(([g,items])=>{
   const a=items.filter(x=>x.includes(q));
   if(!a.length)return;
-
   h+=`<div class="category">${g}</div><div class="chips">`+
   a.map(x=>`<button type="button" class="chip ${selected.has(x)?'active':''}" onclick="toggle('${x}')">${x}</button>`).join('')+
   '</div>';
  });
-
  if(custom.length){
-  const customMatches=custom.filter(x=>x.includes(q));
-  if(customMatches.length){
-   h+='<div class="category">✨ مكوناتك الخاصة</div><div class="chips">'+
-   customMatches.map(x=>`<button type="button" class="chip ${selected.has(x)?'active':''}" onclick="toggle('${x}')">${x}</button>`).join('')+
-   '</div>';
-  }
+  h+='<div class="category">✨ مكوناتك الخاصة</div><div class="chips">'+
+  custom.map(x=>`<button type="button" class="chip ${selected.has(x)?'active':''}" onclick="toggle('${x}')">${x}</button>`).join('')+
+  '</div>';
  }
-
  document.getElementById('ingredientList').innerHTML=h||'<div class="empty">مش لاقي المكون ده</div>';
-
- document.getElementById('selected').innerHTML=[...selected].map(x=>`
-  <div class="qtyrow">
-   <b>${x}</b>
-   <span>
-    <div class="stepper">
-     <button type="button" aria-label="تقليل ${x}" onclick="changeQty('${x}',-1)">−</button>
-     <strong class="step-value" id="qty-${encodeURIComponent(x)}">${quantities[x]??defaultQty(x)}</strong>
-     <button type="button" aria-label="زيادة ${x}" onclick="changeQty('${x}',1)">+</button>
-    </div>
-    <small>${unitFor(x)}</small>
-   </span>
-  </div>`).join('');
+ document.getElementById('selected').innerHTML=[...selected].map(x=>{
+  const u=unitFor(x);
+  return `<div class="qtyrow"><b>${x}</b><span><div class="stepper" role="group" aria-label="كمية ${x}"><button type="button" aria-label="تقليل كمية ${x}" onclick="changeQty('${x}',-1)">−</button><strong class="step-value" id="qty-${encodeURIComponent(x)}">${quantities[x]??defaultQty(x)}</strong><button type="button" aria-label="زيادة كمية ${x}" onclick="changeQty('${x}',1)">+</button></div><small>${u}</small></span></div>`;
+ }).join('');
 }
-
 function changeQty(x,delta){
  const current=Number(quantities[x]??defaultQty(x));
  const next=Math.max(0,Math.round((current+delta)*100)/100);
@@ -370,44 +253,29 @@ function changeQty(x,delta){
  if(value)value.textContent=next;
  if(currentPlan.length)renderShopping();
 }
-
 function toggle(x){
- if(selected.has(x)){
-  selected.delete(x);
- }else{
+ if(selected.has(x))selected.delete(x);
+ else if(!selected.has(x)){
   selected.add(x);
   if(quantities[x]===undefined)quantities[x]=defaultQty(x);
  }
  renderIngredients();
 }
-
 function suggestCustom(){
  const input=document.getElementById('customIngredient');
  const box=document.getElementById('suggestions');
  const q=input.value.trim();
-
- if(!q){
-  box.classList.remove('show');
-  box.innerHTML='';
-  return;
- }
-
+ if(!q){box.classList.remove('show');box.innerHTML='';return}
  const all=[...new Set([...Object.values(groups).flat(),...custom])];
  const matches=all.filter(x=>x.includes(q)&&!selected.has(x)).slice(0,7);
-
  if(!matches.length){
   box.innerHTML='<div class="suggestion">مفيش اقتراح مطابق — اضغط إضافة لإضافته كمكون جديد</div>';
   box.classList.add('show');
   return;
  }
-
- box.innerHTML=matches.map(x=>
-  `<button type="button" class="suggestion" onclick="chooseSuggestion('${x.replace(/'/g,"\\'")}')"><span>${x}</span><small>اضغط للاختيار</small></button>`
- ).join('');
-
+ box.innerHTML=matches.map(x=>`<button type="button" class="suggestion" onclick="chooseSuggestion('${x.replace(/'/g,"\\'")}')"><span>${x}</span><small>اضغط للاختيار</small></button>`).join('');
  box.classList.add('show');
 }
-
 function chooseSuggestion(x){
  selected.add(x);
  if(quantities[x]===undefined)quantities[x]=defaultQty(x);
@@ -415,19 +283,12 @@ function chooseSuggestion(x){
  document.getElementById('suggestions').classList.remove('show');
  renderIngredients();
 }
-
 function addCustom(){
  const input=document.getElementById('customIngredient');
  const x=input.value.trim();
  if(!x)return;
-
  const known=[...Object.values(groups).flat(),...custom].find(v=>v===x);
-
- if(known){
-  chooseSuggestion(known);
-  return;
- }
-
+ if(known){chooseSuggestion(known);return}
  if(!custom.includes(x))custom.push(x);
  selected.add(x);
  quantities[x]=quantities[x]??defaultQty(x);
@@ -465,7 +326,8 @@ function choose(kind,used){
  let available=scored.filter(x=>x.s>=Math.min(2,x.r.need.length)&&!used.has(x.r.n));
  if(!available.length)available=scored.filter(x=>!used.has(x.r.n));
  if(!available.length)available=scored;
- const best=available[Math.floor(Math.random()*Math.min(available.length,Math.max(1,Math.ceil(available.length*.65)))].r;
+ const limit=Math.min(available.length,Math.max(1,Math.ceil(available.length*.65)));
+ const best=available[Math.floor(Math.random()*limit)].r;
  used.add(best.n);
  return best;
 }
@@ -473,9 +335,11 @@ function choose(kind,used){
 function generatePlan(){
  [...selected].forEach(x=>{if(quantities[x]===undefined)quantities[x]=defaultQty(x)});
  const used=new Set();
- currentPlan=days.map(d=>({day:d,meals:[choose('فطار',used),choose('غدا',used),choose('عشا',used)]}));
+ currentPlan=days.map(d=>({
+  day:d,
+  meals:[choose('فطار',used),choose('غدا',used),choose('عشا',used)]
+ }));
  renderPlan();
- renderIngredients();
  document.getElementById('weekLabel').textContent='خطة جديدة • 7 أيام';
  document.getElementById('shortages').style.display='block';
  renderShopping();
@@ -484,24 +348,25 @@ function generatePlan(){
 function renderPlan(){
  const labels=['🌅 الفطار','☀️ الغدا','🌙 العشا'];
  document.getElementById('days').innerHTML=currentPlan.map((d,di)=>
- `<section class="day">
-  <div class="daytop"><strong>${d.day}</strong><small>اليوم ${di+1} من 7</small></div>
-  <div class="meals">${d.meals.map((m,mi)=>
-   `<div class="meal">
-    <div class="kind">${labels[mi]}</div>
-    <div class="foodicon">${m.i}</div>
-    <div class="name">${m.n}</div>
-    <div class="meta">⏱ ${m.t} دقيقة</div>
-    <button type="button" onclick="showRecipe(${di},${mi})">طريقة التحضير ←</button>
-   </div>`).join('')}
-  </div>
- </section>`).join('');
+  `<section class="day">
+   <div class="daytop"><strong>${d.day}</strong><small>اليوم ${di+1} من 7</small></div>
+   <div class="meals">${d.meals.map((m,mi)=>
+    `<div class="meal">
+     <div class="kind">${labels[mi]}</div>
+     <div class="foodicon">${m.i}</div>
+     <div class="name">${m.n}</div>
+     <div class="meta">⏱ ${m.t} دقيقة</div>
+     <button type="button" onclick="showRecipe(${di},${mi})">طريقة التحضير ←</button>
+    </div>`
+   ).join('')}</div>
+  </section>`
+ ).join('');
 }
 
 function showRecipe(d,m){
  const r=currentPlan[d].meals[m];
- document.getElementById('modalContent').innerHTML=`
- <h3>${r.i} ${r.n}</h3>
+ document.getElementById('modalContent').innerHTML=
+ `<h3>${r.i} ${r.n}</h3>
  <p style="color:#718078">⏱ وقت التحضير: ${r.t} دقيقة</p>
  <b>المكونات:</b>
  <ul>${r.need.map(x=>`<li>${x} ${selected.has(x)?'✓ موجود':'• ناقص'}</li>`).join('')}</ul>
@@ -510,18 +375,40 @@ function showRecipe(d,m){
  <p style="color:#718078;font-size:11px">المقادير تقديرية، وتقدر تراجع الكميات حسب احتياج البيت.</p>`;
  document.getElementById('modal').classList.add('show');
 }
+function closeModal(){document.getElementById('modal').classList.remove('show')}
 
-function closeModal(){
- document.getElementById('modal').classList.remove('show');
+function safeGeneratePlan(){
+ try{
+  if(!selected.size){
+   document.getElementById('days').innerHTML=
+   '<div class="empty plan-empty"><div class="empty-icon">🧺</div><strong>اختار مكون واحد على الأقل</strong><p>حدد المكونات المتاحة في مطبخك وبعدها اضغط إنشاء الجدول.</p></div>';
+   return;
+  }
+  generatePlan();
+ }catch(error){
+  console.error('Plan generation failed:',error);
+  document.getElementById('days').innerHTML=
+  '<div class="empty plan-empty"><div class="empty-icon">⚠️</div><strong>حصل خطأ أثناء إنشاء الجدول</strong><p>حدّث الصفحة وجرب مرة تانية.</p></div>';
+ }
 }
 
-document.addEventListener('click',e=>{
+function initializeApp(){
+ renderIngredients();
+ const generateButton=document.getElementById('generatePlanBtn');
+ if(generateButton){
+  generateButton.addEventListener('click',function(event){
+   event.preventDefault();
+   safeGeneratePlan();
+  },{passive:false});
+ }
+}
+
+document.addEventListener('click',function(e){
  if(!e.target.closest('.suggest-wrap')){
   document.getElementById('suggestions')?.classList.remove('show');
  }
 });
 
-/* ربط الدوال مباشرة بالـ window لتعمل أزرار onclick على Safari وGitHub Pages */
 window.renderIngredients=renderIngredients;
 window.changeQty=changeQty;
 window.toggle=toggle;
@@ -532,11 +419,10 @@ window.generatePlan=generatePlan;
 window.showRecipe=showRecipe;
 window.closeModal=closeModal;
 
-/* تشغيل أولي */
 if(document.readyState==='loading'){
- document.addEventListener('DOMContentLoaded',renderIngredients,{once:true});
+ document.addEventListener('DOMContentLoaded',initializeApp,{once:true});
 }else{
- renderIngredients();
+ initializeApp();
 }
 </script>
 </body>

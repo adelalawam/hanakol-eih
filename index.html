@@ -565,3 +565,35 @@ initializeApp();
 </script>
 </body>
 </html>
+/* أزرار زيادة وتقليل الكمية */
+.stepper {
+  direction: ltr;
+}
+
+.stepper button:first-child {
+  background: linear-gradient(145deg, #ff7777, #d93636);
+  color: #fff;
+  box-shadow: 0 4px 0 #a92525, 0 5px 9px #d9363635;
+  border-radius: 9px;
+  font-size: 17px;
+  font-weight: 900;
+}
+
+.stepper button:last-child {
+  background: linear-gradient(145deg, #55bd85, #16804e);
+  color: #fff;
+  box-shadow: 0 4px 0 #105c38, 0 5px 9px #16804e35;
+  border-radius: 9px;
+  font-size: 17px;
+  font-weight: 900;
+}
+
+.stepper button:active {
+  transform: translateY(3px) scale(.94);
+  box-shadow: 0 1px 0 currentColor;
+}
+
+.stepper .step-value {
+  min-width: 36px;
+  text-align: center;
+}

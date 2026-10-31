@@ -1,410 +1,412 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#123b2d"><meta name="description" content="هناكل إيه؟">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#174b38">
 <title>هناكل إيه؟</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap');
-:root{--green:#14513c;--green2:#28775a;--mint:#e8f4ed;--cream:#faf9f5;--ink:#18251e;--muted:#718078;--line:#e7ebe6;--orange:#e99a4b;--white:#fff;--shadow:0 12px 35px #193d2810;--lift-shadow:0 18px 34px #163c2b18}
+
+:root{
+ --green:#174b38;--green2:#28694e;--mint:#e9f5ed;
+ --cream:#faf9f5;--ink:#1d2b23;--muted:#758078;
+ --line:#e7ece7;--orange:#f2a65a;--pink:#f9e7e7;
+ --blue:#e6f0fa;--purple:#eee9fa;--yellow:#fff3d9;
+ --shadow:0 12px 32px #193d2810;
+}
 *{box-sizing:border-box}
-body{margin:0;background:var(--cream);color:var(--ink);font-family:'Cairo',system-ui,sans-serif}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:'Cairo',sans-serif}
 button,input{font:inherit}
 button{cursor:pointer;border:0}
-.app{max-width:1180px;margin:auto;padding:22px 24px 60px}
-.top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:28px}
+.app{max-width:1200px;margin:auto;padding:22px 24px 55px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:24px}
 .brand{display:flex;align-items:center;gap:12px}
-.logo{width:48px;height:48px;border-radius:16px;background:linear-gradient(145deg,#28775a,#103b2c);color:white;display:grid;place-items:center;font-size:25px;transform:perspective(500px) rotateY(-13deg) rotateX(5deg);box-shadow:7px 9px 0 #0c3024,0 17px 25px #174b3840}
-.brand h1{font-size:24px;margin:0;font-weight:900;line-height:1.2}
+.logo{width:52px;height:52px;border-radius:17px;background:linear-gradient(145deg,#28694e,#123b2d);color:white;display:grid;place-items:center;font-size:27px;box-shadow:0 7px 0 #0c3024,0 14px 22px #174b3830;transform:perspective(500px) rotateY(-10deg)}
+.brand h1{margin:0;font-size:25px;font-weight:900}
 .brand small{color:var(--muted);font-size:11px}
-.hero{background:linear-gradient(125deg,#123b2d 0%,#23694d 65%,#438c68 100%);color:white;border-radius:26px;padding:28px 30px;display:flex;align-items:center;justify-content:space-between;gap:20px;overflow:hidden;position:relative;box-shadow:0 18px 34px #153e2c30}
-.hero:after{content:'🍲';font-size:108px;opacity:.16;position:absolute;left:28px;bottom:-24px;transform:rotate(-15deg);animation:floatFood 4s ease-in-out infinite;filter:drop-shadow(0 12px 8px #071b1250)}
-.hero h2{font-size:26px;margin:0 0 7px;font-weight:900}
-.hero p{margin:0;color:#d4e5da;font-size:14px}
-.hero .tag{display:inline-block;background:#ffffff20;border:1px solid #ffffff30;padding:5px 11px;border-radius:30px;font-size:11px;margin-bottom:10px}
-.hero button{background:#fff;color:var(--green);padding:12px 18px;border-radius:13px;font-weight:800;position:relative;z-index:1;white-space:nowrap}
-.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:13px;margin:18px 0 24px}
-.stat{background:white;border:1px solid var(--line);border-radius:17px;padding:14px 17px;display:flex;align-items:center;gap:12px;transition:transform .25s ease,box-shadow .25s ease;transform:perspective(700px) rotateX(2deg)}
-.stat .ico{width:40px;height:40px;border-radius:13px;background:var(--mint);display:grid;place-items:center;font-size:19px}
-.stat:nth-child(1) .ico{background:#f0edff}
-.stat:nth-child(2) .ico{background:#fff0e8}
-.stat strong{display:block;font-size:19px}
-.stat span{color:var(--muted);font-size:11px}
-.layout{display:grid;grid-template-columns:330px 1fr;gap:18px;align-items:start}
-.panel{background:white;border:1px solid var(--line);border-radius:21px;padding:20px;box-shadow:0 12px 30px #173d2a10,0 3px 0 #e5eee7;transform-style:preserve-3d;transition:transform .25s ease,box-shadow .25s ease}
-.panel:hover,.day:hover{transform:translateY(-3px);box-shadow:var(--lift-shadow)}
+.pill{background:white;border:1px solid var(--line);border-radius:13px;padding:9px 14px;color:var(--green);font-weight:800}
+.hero{position:relative;overflow:hidden;background:linear-gradient(115deg,#123b2d,#327c58);border-radius:25px;padding:30px;color:white;display:flex;align-items:center;justify-content:space-between;gap:20px;box-shadow:0 15px 30px #174b3820}
+.hero:after{content:"🍲";position:absolute;left:35px;bottom:-25px;font-size:115px;opacity:.17;animation:float 4s ease-in-out infinite}
+.tag{display:inline-block;background:#ffffff20;border:1px solid #ffffff35;padding:5px 12px;border-radius:30px;font-size:11px;margin-bottom:9px}
+.hero h2{font-size:27px;margin:0 0 7px;font-weight:900}
+.hero p{font-size:13px;color:#dcece1;margin:0}
+.hero button{position:relative;z-index:1;background:white;color:var(--green);padding:12px 18px;border-radius:13px;font-weight:900;white-space:nowrap;box-shadow:0 5px 0 #d4e2d8;transition:.2s}
+.hero button:active{transform:translateY(4px);box-shadow:none}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin:18px 0 22px}
+.stat{background:white;border:1px solid var(--line);border-radius:17px;padding:13px 16px;display:flex;align-items:center;gap:12px;box-shadow:var(--shadow);transition:.25s}
+.stat:hover{transform:translateY(-4px) rotateX(3deg)}
+.stat .ico{width:42px;height:42px;border-radius:14px;background:var(--mint);display:grid;place-items:center;font-size:21px}
+.stat strong{display:block;font-size:18px}
+.stat span{color:var(--muted);font-size:10px}
+.layout{display:grid;grid-template-columns:340px 1fr;gap:18px;align-items:start}
+.panel{background:white;border:1px solid var(--line);border-radius:21px;padding:20px;box-shadow:var(--shadow)}
 .panel h3{margin:0 0 5px;font-size:17px}
-.sub{color:var(--muted);font-size:12px;margin:0 0 17px}
-.search{width:100%;border:1px solid var(--line);background:#fbfcfa;border-radius:12px;padding:11px 13px;outline:none;margin-bottom:13px}
-.search:focus{border-color:var(--green2)}
-.category{font-size:12px;color:var(--green);font-weight:800;margin:12px 0 8px}
+.sub{font-size:11px;color:var(--muted);margin:0 0 15px}
+.search{width:100%;border:1px solid var(--line);background:#fbfcfa;border-radius:12px;padding:11px 13px;outline:none;margin-bottom:10px}
+.search:focus{border-color:var(--green2);box-shadow:0 0 0 3px #28694e15}
+.category{font-size:12px;color:var(--green);font-weight:900;margin:13px 0 8px}
 .chips{display:flex;flex-wrap:wrap;gap:7px}
-.chip{background:#f6f8f5;border:1px solid #e9eee9;border-radius:30px;padding:7px 10px;font-size:11px;color:#435148;transition:transform .18s ease,background .18s ease,box-shadow .18s ease}
-.chip:hover{transform:translateY(-3px) scale(1.035);box-shadow:0 7px 13px #174b3820}
-.chip.active{background:linear-gradient(145deg,#28775a,#124330);border-color:var(--green);color:white;box-shadow:0 7px 0 #0e3829,0 13px 20px #174b3830;transform:translateY(-2px)}
-.selected{display:flex;flex-wrap:wrap;gap:6px;margin-top:13px;min-height:25px}
-.selected .qtyrow{display:flex;align-items:center;gap:5px;background:linear-gradient(110deg,#eaf4ed,#f3f8f4);border:1px solid #e2eee5;box-shadow:0 4px 0 #e1ece4;color:var(--green);border-radius:11px;padding:5px 7px;font-size:10px;width:100%;justify-content:space-between}
+.chip{background:#f5f8f5;border:1px solid #e8eee8;border-radius:30px;padding:7px 10px;font-size:11px;color:#435148;transition:.2s}
+.chip:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 6px 12px #174b3820}
+.chip.active{background:var(--green);border-color:var(--green);color:white;box-shadow:0 4px 10px #174b3830}
+.selected{display:grid;gap:7px;margin-top:13px}
+.qtyrow{display:flex;align-items:center;justify-content:space-between;gap:7px;background:linear-gradient(110deg,#eaf4ed,#f4f8f4);border:1px solid #e2eee5;border-radius:11px;padding:7px 9px;font-size:11px;animation:appear .2s ease}
+.qtyrow .qname{font-weight:800;flex:1}
 .qtyrow small{color:#52715f;white-space:nowrap}
-.addrow{display:flex;gap:7px;margin-top:13px;align-items:stretch}
+.stepper{display:flex;align-items:center;gap:5px;direction:ltr;background:white;border:1px solid #d6e6dc;border-radius:9px;padding:3px}
+.stepper button{width:24px;height:24px;border-radius:7px;background:#eaf4ed;color:var(--green);font-weight:900}
+.stepper button:active{background:#cde6d6;transform:scale(.9)}
+.step-value{min-width:30px;text-align:center;font-weight:900;font-variant-numeric:tabular-nums}
+.remove{background:none;color:#b45d55;font-size:15px;padding:2px}
+.addrow{display:flex;gap:7px;margin-top:13px;position:relative}
 .addrow input{min-width:0;flex:1;border:1px solid var(--line);border-radius:10px;padding:9px;font-size:12px}
-.addrow button{background:#eaf4ed;color:var(--green);border-radius:10px;padding:0 13px;font-weight:800}
-.primary{background:linear-gradient(135deg,#28775a,#123b2d);color:white;padding:13px 16px;border-radius:13px;font-weight:800;width:100%;margin-top:16px;box-shadow:0 7px 0 #0c3024,0 13px 22px #174b3830;transition:transform .2s ease,box-shadow .2s ease;animation:softGlow 3.5s ease-in-out infinite}
-.primary:hover{background:var(--green2)}
-.primary:active,.hero button:active{transform:scale(.97)}
-.primary:active{box-shadow:0 2px 0 #0c3024;transform:translateY(4px)}
-.content-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:13px;gap:12px}
+.addrow>button{background:#eaf4ed;color:var(--green);border-radius:10px;padding:0 13px;font-weight:900}
+.suggestions{display:none;position:absolute;z-index:10;top:calc(100% + 5px);right:0;left:0;background:white;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);overflow:hidden}
+.suggestions.show{display:block}
+.suggestion{display:block;width:100%;text-align:right;padding:10px;background:white;border-bottom:1px solid var(--line);font-size:12px}
+.suggestion:hover{background:var(--mint)}
+.family{display:flex;align-items:center;justify-content:space-between;margin-top:17px;padding-top:14px;border-top:1px solid var(--line);font-size:12px}
+.family input{width:60px;border:1px solid var(--line);border-radius:9px;padding:7px;text-align:center}
+.primary{width:100%;margin-top:16px;padding:14px;border-radius:13px;background:linear-gradient(110deg,#174b38,#28694e);color:white;font-weight:900;font-size:14px;box-shadow:0 6px 0 #0c3024,0 12px 20px #174b3825;transition:.2s}
+.primary:active{transform:translateY(4px);box-shadow:0 2px 0 #0c3024}
+.content-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:13px}
 .content-head h3{margin:0;font-size:19px}
 .weeklabel{font-size:11px;color:var(--muted);background:white;border:1px solid var(--line);border-radius:30px;padding:7px 11px}
-.days{display:grid;gap:12px}
-.day{background:white;border:1px solid var(--line);border-radius:18px;padding:15px 16px;box-shadow:var(--shadow);transition:transform .25s ease,box-shadow .25s ease;animation:popIn .42s both}
-.day:nth-child(7n+1){border-top:4px solid #70aa89}
-.day:nth-child(7n+2){border-top:4px solid #e7b36e}
-.day:nth-child(7n+3){border-top:4px solid #9b91d4}
-.day:nth-child(7n+4){border-top:4px solid #79a9d5}
-.day:nth-child(7n+5){border-top:4px solid #df9b8c}
-.day:nth-child(7n+6){border-top:4px solid #8bb9ae}
-.day:nth-child(7n){border-top:4px solid #d4b56c}
+.days{display:grid;gap:13px}
+.day{background:white;border:1px solid var(--line);border-radius:18px;padding:15px;box-shadow:var(--shadow);animation:appear .4s ease both}
 .daytop{display:flex;align-items:center;justify-content:space-between;margin-bottom:11px}
-.daytop strong{font-size:14px}
+.daytop strong{font-size:15px}
 .daytop small{font-size:10px;color:var(--muted)}
-.meals{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
-.meal{background:#fafbf9;border:1px solid #edf0ec;border-radius:13px;padding:10px;min-width:0;box-shadow:0 4px 0 #e8eee8;transition:transform .22s ease,box-shadow .22s ease;transform-style:preserve-3d}
-.meal:nth-child(1){background:linear-gradient(145deg,#fff9e9,#fff)}
-.meal:nth-child(2){background:linear-gradient(145deg,#eaf5ed,#fff)}
-.meal:nth-child(3){background:linear-gradient(145deg,#f0edff,#fff)}
-.meal:hover{transform:perspective(650px) rotateX(4deg) rotateY(-2deg) translateY(-5px);box-shadow:0 14px 23px #173d2a20}
-.meal .kind{font-size:10px;color:var(--muted);margin-bottom:5px}
-.meal .name{font-size:12px;font-weight:800;line-height:1.55;min-height:37px}
-.meal .meta{font-size:9px;color:var(--muted);margin-top:6px}
-.meal button{background:none;color:var(--green2);font-size:10px;padding:5px 0 0;font-weight:800}
-.meal .foodicon{font-size:19px;float:left;filter:drop-shadow(0 5px 3px #17291c30);transform:translateZ(14px)}
-.bottom-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:17px}
-.shopping ul{padding:0 18px 0 0;margin:8px 0}
-.shopping li{font-size:12px;padding:7px 0;color:#435148;line-height:1.8}
-.note{background:#fff7eb;border:1px solid #f5e7d2;color:#795a31;padding:11px 13px;border-radius:13px;font-size:11px;line-height:1.8;margin-top:13px}
-.empty{padding:30px;text-align:center;color:var(--muted);font-size:13px}
-.modalbg{position:fixed;inset:0;background:#10251dcc;display:none;align-items:center;justify-content:center;padding:18px;z-index:5}
+.meals{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.meal{border-radius:15px;padding:12px;min-width:0;transition:.25s;transform-style:preserve-3d;border:1px solid #edf0ec}
+.meal:nth-child(1){background:linear-gradient(145deg,#fff8e9,#fffdf8)}
+.meal:nth-child(2){background:linear-gradient(145deg,#eaf5ed,#fbfdfb)}
+.meal:nth-child(3){background:linear-gradient(145deg,#f0edfa,#fff)}
+.meal:hover{transform:perspective(600px) rotateX(3deg) translateY(-5px);box-shadow:0 13px 20px #173d2a18}
+.kind{font-size:10px;color:var(--muted);margin-bottom:5px;font-weight:800}
+.foodicon{font-size:28px;filter:drop-shadow(0 5px 3px #17291c25);margin:3px 0}
+.name{font-size:12px;font-weight:900;line-height:1.7;min-height:40px}
+.meta{font-size:10px;color:var(--muted);margin-top:5px}
+.meal button{background:none;color:var(--green2);font-size:11px;padding:7px 0 0;font-weight:900}
+.plan-empty{min-height:330px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:linear-gradient(145deg,#fff,#f1f8f3);border:1px dashed #c9ddce;border-radius:22px;padding:25px}
+.empty-icon{font-size:55px;animation:float 3s ease-in-out infinite;filter:drop-shadow(0 8px 5px #193d2830)}
+.plan-empty strong{font-size:18px;color:var(--green);margin:10px 0 5px}
+.plan-empty p{font-size:12px;line-height:2;color:var(--muted);max-width:370px;margin:0}
+.modalbg{position:fixed;inset:0;background:#10251ddd;display:none;align-items:center;justify-content:center;padding:18px;z-index:20}
 .modalbg.show{display:flex}
-.modal{background:white;border-radius:22px;padding:23px;max-width:470px;width:100%;max-height:85vh;overflow:auto}
-.modal h3{margin:0 0 6px}
-.modal p,.modal li{font-size:13px;line-height:1.9}
-.modal .close{float:left;background:#f0f4f0;border-radius:9px;padding:5px 10px}
-.footer{text-align:center;color:#9aa49d;font-size:10px;margin-top:28px}
-.stepper{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid #d6e6dc;border-radius:12px;padding:4px;box-shadow:0 3px 0 #dce9e0;direction:ltr}
-.stepper button{width:28px;height:29px;border-radius:8px;background:#eaf4ed;color:#17513b;font-size:12px;font-weight:900;display:grid;place-items:center;transition:transform .12s,background .12s}
-.stepper button:active{transform:scale(.88);background:#cde6d6}
-.stepper .step-value{min-width:36px;text-align:center;font-size:14px;color:#17291f;font-variant-numeric:tabular-nums}
-.suggest-wrap{position:relative;flex:1;min-width:0}
-.suggest-wrap input{width:100%}
-.suggestions{position:absolute;z-index:8;top:calc(100% + 5px);right:0;left:0;background:white;border:1px solid #dfe9e1;border-radius:13px;box-shadow:0 14px 30px #173d2a20;overflow:hidden;display:none;max-height:230px;overflow-y:auto}
-.suggestions.show{display:block;animation:appearUp .16s ease}
-.suggestion{width:100%;display:flex;justify-content:space-between;align-items:center;text-align:right;padding:10px 13px;background:white;color:var(--ink);border-bottom:1px solid #f0f3ef;font-size:12px}
-.suggestion:last-child{border-bottom:0}
-.suggestion:hover{background:var(--mint);color:var(--green)}
-@keyframes floatFood{0%,100%{transform:translateY(0) rotate(-8deg)}50%{transform:translateY(-13px) rotate(5deg)}}
-@keyframes softGlow{0%,100%{box-shadow:0 10px 25px #174b3820}50%{box-shadow:0 15px 34px #174b3840}}
-@keyframes appearUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-@keyframes popIn{0%{opacity:0;transform:translateY(10px) scale(.98)}100%{opacity:1;transform:translateY(0) scale(1)}}
-@media(max-width:850px){.layout{grid-template-columns:1fr}.hero{padding:23px}.hero h2{font-size:22px}.stats{gap:8px}.stat{padding:10px}.bottom-grid{grid-template-columns:1fr}}
-@media(max-width:520px){.app{padding:14px 12px 40px}.top{margin-bottom:17px}.brand h1{font-size:20px}.hero{border-radius:20px;padding:20px 17px;align-items:flex-start;flex-direction:column}.hero:after{font-size:75px;left:8px}.hero button{padding:10px 14px}.stats{grid-template-columns:repeat(2,1fr)}.stat{display:block;text-align:center}.stat .ico{margin:0 auto 5px;width:32px;height:32px;font-size:15px}.stat strong{font-size:15px}.stat span{font-size:9px}.panel{padding:16px}.meals{gap:5px}.meal{padding:8px 6px}.meal .name{font-size:11px}.meal .foodicon{font-size:16px}.day{padding:12px 9px}.daytop{padding:0 3px}}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+.modal{background:white;border-radius:22px;padding:23px;max-width:520px;width:100%;max-height:88vh;overflow:auto;box-shadow:0 20px 70px #0004;animation:appear .2s ease}
+.modal h3{margin:0 0 6px;font-size:19px}
+.modal p,.modal li{font-size:13px;line-height:2}
+.modal .close{float:left;background:#f0f4f0;border-radius:9px;padding:6px 11px;font-weight:900}
+.modal ul,.modal ol{padding-right:23px}
+.modal .steps li{margin:5px 0}
+.modal .steps li::marker{color:var(--green2);font-weight:900}
+.footer{text-align:center;color:#9aa49d;font-size:10px;margin-top:25px}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-7deg)}50%{transform:translateY(-12px) rotate(5deg)}}
+@keyframes appear{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+@media(max-width:850px){.layout{grid-template-columns:1fr}.hero{padding:23px}.hero h2{font-size:22px}}
+@media(max-width:560px){
+ .app{padding:13px 11px 35px}.brand h1{font-size:20px}.top{margin-bottom:17px}
+ .hero{padding:20px 17px;align-items:flex-start;flex-direction:column}.hero h2{font-size:20px}
+ .hero:after{font-size:75px;left:5px}.stats{gap:7px}.stat{display:block;text-align:center;padding:9px 4px}
+ .stat .ico{margin:0 auto 5px;width:32px;height:32px;font-size:16px}
+ .stat strong{font-size:14px}.stat span{font-size:9px}
+ .panel{padding:15px}.meals{gap:5px}.meal{padding:8px 6px}
+ .foodicon{font-size:21px}.name{font-size:10px}.day{padding:11px 8px}
+}
+@media print{
+ @page{size:auto;margin:12mm}
+ body{background:white!important}
+ body *{visibility:hidden!important}
+ #days,#days *{visibility:visible!important}
+ #days{position:absolute!important;top:0!important;right:0!important;width:100%!important}
+ #days .day{break-inside:avoid;page-break-inside:avoid;box-shadow:none!important;border:1px solid #aaa!important;margin-bottom:10px!important}
+ #days .meal{box-shadow:none!important;transform:none!important;border:1px solid #ddd!important}
+ #days .meal button{display:none!important}
+}
 </style>
 </head>
 <body>
 <div class="app">
+
 <header class="top">
- <div class="brand"><div class="logo">🍽</div><div><h1>هناكل إيه؟</h1><small>خطّط أكلك من الموجود في مطبخك</small></div></div>
+ <div class="brand">
+  <div class="logo">🍽️</div>
+  <div><h1>هناكل إيه؟</h1><small>خطّط أكلك من الموجود في مطبخك</small></div>
+ </div>
+ <div class="top-actions">
+  <button class="pill" onclick="printPlan()">🖨️ طباعة الجدول</button>
+ </div>
 </header>
 
 <section class="hero">
- <div><span class="tag">مطبخ مصري • تخطيط أسبوعي</span><h2>كل يوم هتاكل إيه؟ سيبها علينا 👨‍🍳</h2><p>اختار الموجود في التلاجة، وإحنا نرتبلك أسبوع كامل من الأكل البيتي.</p></div>
+ <div>
+  <span class="tag">مطبخ مصري • تخطيط أسبوعي</span>
+  <h2>كل يوم هتاكل إيه؟ 👨‍🍳</h2>
+  <p>اختار المكونات الموجودة عندك، وإحنا نرتبلك أسبوع كامل من الأكل البيتي.</p>
+ </div>
  <button onclick="document.getElementById('fridge').scrollIntoView({behavior:'smooth'})">اختار مكوناتك ←</button>
 </section>
 
 <div class="stats">
  <div class="stat"><div class="ico">🗓️</div><div><strong>7 أيام</strong><span>خطة أسبوعية</span></div></div>
  <div class="stat"><div class="ico">🍲</div><div><strong>21 وجبة</strong><span>فطار وغدا وعشا</span></div></div>
+ <div class="stat"><div class="ico">👨‍👩‍👧‍👦</div><div><strong id="familyStat">4 أفراد</strong><span>خطة عائلية</span></div></div>
 </div>
 
 <div class="layout">
-<aside class="panel" id="fridge">
- <h3>🧊 إيه الموجود في المطبخ؟</h3>
- <p class="sub">اختار المكونات واكتب الكمية المتاحة من كل حاجة</p>
- <input class="search" id="filter" placeholder="دوّر على مكون..." oninput="renderIngredients()">
- <div id="ingredientList"></div>
- <div class="selected" id="selected"></div>
- <div class="addrow">
-  <div class="suggest-wrap">
-   <input id="customIngredient" autocomplete="off" placeholder="اكتب اسم المكون..." oninput="suggestCustom()" onkeydown="if(event.key==='Enter'){event.preventDefault();addCustom()}">
-   <div id="suggestions" class="suggestions"></div>
+ <aside class="panel" id="fridge">
+  <h3>🧊 إيه الموجود في المطبخ؟</h3>
+  <p class="sub">اختار المكونات وحدد الكمية المتاحة عندك</p>
+  <input class="search" id="filter" placeholder="دوّر على مكون..." oninput="renderIngredients()">
+  <div id="ingredientList"></div>
+  <div class="selected" id="selected"></div>
+  <div class="addrow">
+   <input id="customIngredient" autocomplete="off" placeholder="اكتب مكون جديد..." oninput="suggestCustom()" onkeydown="if(event.key==='Enter'){event.preventDefault();addCustom()}">
+   <button onclick="addCustom()">إضافة</button>
+   <div class="suggestions" id="suggestions"></div>
   </div>
-  <button onclick="addCustom()">+ إضافة</button>
- </div>
- <button class="primary" onclick="generatePlan()">✨ اعملّي جدول الأسبوع</button>
-</aside>
+  <div class="family">
+   <label for="people">عدد أفراد الأسرة</label>
+   <input type="number" id="people" min="1" max="20" value="4" onchange="updateFamily()">
+  </div>
+  <button class="primary" onclick="generatePlan()">✨ اعملي جدول الأسبوع</button>
+ </aside>
 
-<main>
- <div class="content-head"><h3>📅 جدول أكلك الأسبوعي</h3><span class="weeklabel" id="weekLabel">اقتراح مبدئي</span></div>
- <div class="days" id="days"></div>
- <div class="bottom-grid">
-  <section class="panel shopping">
-   <h3>🧾 النواقص</h3>
-   <p class="sub">المكونات اللي محتاجها جدول الأسبوع ومش متوفرة بالكمية المطلوبة</p>
-   <div id="shopping"><div class="empty">اختار المكونات واضغط «اعملّي جدول الأسبوع»</div></div>
-  </section>
-  <section class="panel">
-   <h3>💚 نصايح أكل البيت</h3>
-   <p class="sub">تخطيط أذكى ومجهود أقل</p>
-   <ul style="padding-right:18px;font-size:12px;line-height:2;color:#526158">
-    <li>جهّز البقوليات وانقعها من بالليل.</li>
-    <li>قسّم الفراخ واللحمة حصص قبل التجميد.</li>
-    <li>نوّع بين البروتين والخضار والنشويات.</li>
-    <li>استخدم بواقي الغدا في عشا مختلف.</li>
-   </ul>
-  </section>
- </div>
-</main>
+ <main>
+  <div class="content-head">
+   <h3>📅 جدول الأكل الأسبوعي</h3>
+   <span class="weeklabel" id="weekLabel">في انتظار إنشاء الجدول</span>
+  </div>
+  <div id="days" class="days">
+   <div class="plan-empty">
+    <div class="empty-icon">🥘</div>
+    <strong>لسه مفيش جدول للأسبوع</strong>
+    <p>اختار المكونات الموجودة عندك، وبعدها اضغط على «اعملي جدول الأسبوع» علشان نجهزلك 21 وجبة متنوعة.</p>
+   </div>
+  </div>
+ </main>
 </div>
-<div class="footer">هناكل إيه؟ © 2026 — معمول للأكل البيتي المصري ❤️</div>
+
+<div class="footer">هناكل إيه؟ • أفكار أكل بيتي مصري لكل يوم</div>
 </div>
 
 <div class="modalbg" id="modal" onclick="if(event.target===this)closeModal()">
- <div class="modal"><button class="close" onclick="closeModal()">إغلاق ✕</button><div id="modalContent"></div></div>
+ <div class="modal">
+  <button class="close" onclick="closeModal()">✕</button>
+  <div id="modalContent"></div>
+ </div>
 </div>
 
 <script>
 const groups={
-'🥚 ألبان وبيض':['بيض','جبنة بيضاء','جبنة رومي','جبنة قريش','لبن','زبادي','زبدة'],
-'🍗 بروتين':['فراخ','لحمة مفرومة','لحمة مكعبات','سمك','تونة','كبدة','سجق'],
-'🥬 خضار':['طماطم','خيار','بطاطس','بصل','ثوم','فلفل','جزر','كوسة','باذنجان','ملوخية','بسلة','سبانخ','ليمون'],
-'🍚 أساسيات':['رز','مكرونة','عيش بلدي','عيش توست','دقيق','شوفان','عدس','فول','حمص','فاصوليا'],
-'🧂 إضافات':['زيت','صلصة طماطم','طحينة','عسل','مربى','تمر']
+ "🥩 اللحوم والدواجن":["فراخ","لحمة مفرومة","لحمة مكعبات","كبدة","سمك","تونة"],
+ "🥬 الخضار":["بطاطس","طماطم","بصل","ثوم","فلفل","خيار","جزر","كوسة","بامية","ملوخية","ليمون"],
+ "🍚 النشويات والبقول":["رز","مكرونة","عدس","فول","حمص","شوفان"],
+ "🥛 الألبان والبيض":["بيض","لبن","زبادي","جبنة بيضاء","جبنة رومي","زبدة"],
+ "🫙 إضافات":["زيت","صلصة طماطم","طحينة","تمر","عيش بلدي","عيش توست"]
 };
 
-let selected=new Set(['بيض','طماطم','بطاطس','فراخ','رز','مكرونة','بصل','جبنة بيضاء','زبادي','خيار','فول','عيش بلدي']);
-let custom=[],currentPlan=[],quantities={};
+let custom=[];
+let selected=new Set();
+let quantities={};
+let currentPlan=[];
+let planCreated=false;
 
 function unitFor(x){
- if(x==='بيض')return 'بيضة';
- if(['لبن','زيت','صلصة طماطم','عسل'].includes(x))return 'مل';
- if(['فراخ','لحمة مفرومة','لحمة مكعبات','سمك','كبدة','سجق','جبنة بيضاء','جبنة رومي','جبنة قريش','زبدة','تونة','طحينة'].includes(x))return 'جرام';
- if(['عيش بلدي','عيش توست'].includes(x))return 'رغيف/شريحة';
- return 'جرام';
+ if(x==="بيض")return "بيضة";
+ if(x==="عيش بلدي"||x==="عيش توست")return "رغيف";
+ if(["لبن","زيت","صلصة طماطم"].includes(x))return "لتر";
+ return "كيلو";
 }
-
 function defaultQty(x){
- return unitFor(x)==='بيضة'?6:
- unitFor(x)==='مل'?500:
- unitFor(x)==='رغيف/شريحة'?6:1000;
+ if(x==="بيض")return 6;
+ if(x==="عيش بلدي"||x==="عيش توست")return 4;
+ if(unitFor(x)==="لتر")return 1;
+ return 1;
 }
-
-function amountFor(x){
- if(x==='بيض')return 1;
- if(['فراخ','سمك'].includes(x))return 180;
- if(['لحمة مفرومة','لحمة مكعبات','كبدة','سجق','تونة'].includes(x))return 150;
- if(['رز','مكرونة','عدس','فول','حمص','فاصوليا','شوفان','دقيق'].includes(x))return 90;
- if(['لبن','زيت','صلصة طماطم'].includes(x))return 50;
- if(['عيش بلدي','عيش توست'].includes(x))return 1;
- if(['جبنة بيضاء','جبنة رومي','جبنة قريش','زبادي'].includes(x))return 75;
- if(['بطاطس','طماطم','خيار','بصل','جزر','كوسة','باذنجان','فلفل','سبانخ','ملوخية','بسلة','ليمون','ثوم'].includes(x))return 100;
- return 30;
-}
-
-function requiredFor(x){
- let total=0;
- currentPlan.flatMap(d=>d.meals).forEach(r=>{
-  if(r.need.includes(x))total+=amountFor(x);
- });
- return total;
-}
+function fmt(n){return Number.isInteger(n)?n:n.toFixed(1)}
 
 function renderIngredients(){
- let q=document.getElementById('filter').value.trim();
- let h='';
- Object.entries(groups).forEach(([g,items])=>{
-  let a=items.filter(x=>x.includes(q));
-  if(!a.length)return;
-  h+=`<div class="category">${g}</div><div class="chips">`+
-  a.map(x=>`<button class="chip ${selected.has(x)?'active':''}" onclick="toggle('${x}')">${x}</button>`).join('')+
-  '</div>';
+ const q=document.getElementById("filter").value.trim();
+ let html="";
+ Object.entries(groups).forEach(([group,items])=>{
+  let visible=items.filter(x=>x.includes(q));
+  if(!visible.length)return;
+  html+=`<div class="category">${group}</div><div class="chips">`;
+  visible.forEach(x=>{
+   html+=`<button class="chip ${selected.has(x)?"active":""}" onclick="toggle('${x}')">${x}</button>`;
+  });
+  html+="</div>";
  });
- if(custom.length){
-  h+='<div class="category">✨ مكوناتك الخاصة</div><div class="chips">'+
-  custom.map(x=>`<button class="chip ${selected.has(x)?'active':''}" onclick="toggle('${x}')">${x}</button>`).join('')+
-  '</div>';
+ const extra=custom.filter(x=>x.includes(q));
+ if(extra.length){
+  html+='<div class="category">✨ مكونات أضفتها</div><div class="chips">';
+  extra.forEach(x=>html+=`<button class="chip ${selected.has(x)?"active":""}" onclick="toggle('${x}')">${x}</button>`);
+  html+="</div>";
  }
- document.getElementById('ingredientList').innerHTML=h||'<div class="empty">مش لاقي المكون ده</div>';
- document.getElementById('selected').innerHTML=[...selected].map(x=>{
-  let u=unitFor(x);
-  return `<div class="qtyrow"><b>${x}</b><span><div class="stepper" role="group" aria-label="كمية ${x}"><button type="button" aria-label="تقليل كمية ${x}" onclick="changeQty('${x}',-1)">▼</button><strong class="step-value" id="qty-${encodeURIComponent(x)}">${quantities[x]??defaultQty(x)}</strong><button type="button" aria-label="زيادة كمية ${x}" onclick="changeQty('${x}',1)">▲</button></div><small>${u}</small></span></div>`;
- }).join('');
+ document.getElementById("ingredientList").innerHTML=html||'<div class="empty">مفيش مكونات مطابقة للبحث.</div>';
+ renderSelected();
 }
 
-function changeQty(x,delta){
- let current=Number(quantities[x]??defaultQty(x));
- let next=Math.max(0,current+delta);
- quantities[x]=next;
- let value=document.getElementById('qty-'+encodeURIComponent(x));
- if(value)value.textContent=next;
- if(currentPlan.length)renderShopping();
+function renderSelected(){
+ const box=document.getElementById("selected");
+ if(!selected.size){box.innerHTML='<small style="color:#89948d">لسه مفيش مكونات مختارة</small>';return}
+ box.innerHTML=[...selected].map(x=>`
+  <div class="qtyrow">
+   <span class="qname">${x}</span>
+   <small>${unitFor(x)}</small>
+   <div class="stepper">
+    <button onclick="changeQty('${x}',-1)">−</button>
+    <span class="step-value" id="qty-${encodeURIComponent(x)}">${fmt(quantities[x]??defaultQty(x))}</span>
+    <button onclick="changeQty('${x}',1)">+</button>
+   </div>
+   <button class="remove" title="حذف" onclick="toggle('${x}')">×</button>
+  </div>`).join("");
 }
-
 function toggle(x){
  if(selected.has(x))selected.delete(x);
- else{
-  selected.add(x);
-  if(quantities[x]===undefined)quantities[x]=defaultQty(x);
- }
+ else{selected.add(x);if(quantities[x]===undefined)quantities[x]=defaultQty(x)}
  renderIngredients();
- if(currentPlan.length)renderShopping();
+}
+function changeQty(x,delta){
+ quantities[x]=Math.max(unitFor(x)==="بيضة"?1:.1,Number(quantities[x]??defaultQty(x))+delta);
+ const el=document.getElementById("qty-"+encodeURIComponent(x));
+ if(el)el.textContent=fmt(quantities[x]);
+}
+function updateFamily(){
+ let n=Math.max(1,Math.min(20,Number(document.getElementById("people").value)||1));
+ document.getElementById("people").value=n;
+ document.getElementById("familyStat").textContent=n+" أفراد";
 }
 
 function suggestCustom(){
- let input=document.getElementById('customIngredient');
- let box=document.getElementById('suggestions');
- let q=input.value.trim();
- if(!q){box.classList.remove('show');box.innerHTML='';return}
- let all=[...new Set([...Object.values(groups).flat(),...custom])];
- let matches=all.filter(x=>x.includes(q)&&!selected.has(x)).slice(0,7);
+ const input=document.getElementById("customIngredient");
+ const box=document.getElementById("suggestions");
+ const q=input.value.trim();
+ if(!q){box.classList.remove("show");box.innerHTML="";return}
+ const all=[...new Set([...Object.values(groups).flat(),...custom])];
+ const matches=all.filter(x=>x.includes(q)&&!selected.has(x)).slice(0,7);
  if(!matches.length){
-  box.innerHTML='<div class="suggestion">مفيش اقتراح مطابق — اضغط إضافة لإضافته كمكون جديد</div>';
-  box.classList.add('show');
-  return;
+  box.innerHTML='<div class="suggestion">مفيش اقتراح مطابق — اضغط إضافة</div>';
+ }else{
+  box.innerHTML=matches.map(x=>`<button class="suggestion" onclick="chooseSuggestion('${x}')">${x}</button>`).join("");
  }
- box.innerHTML=matches.map(x=>`<button type="button" class="suggestion" onclick="chooseSuggestion('${x.replace(/'/g,"\\'")}')"><span>${x}</span><small>اضغط للاختيار</small></button>`).join('');
- box.classList.add('show');
+ box.classList.add("show");
 }
-
 function chooseSuggestion(x){
  selected.add(x);
- if(quantities[x]===undefined)quantities[x]=defaultQty(x);
- document.getElementById('customIngredient').value='';
- document.getElementById('suggestions').classList.remove('show');
+ quantities[x]=quantities[x]??defaultQty(x);
+ document.getElementById("customIngredient").value="";
+ document.getElementById("suggestions").classList.remove("show");
  renderIngredients();
- if(currentPlan.length)renderShopping();
 }
-
 function addCustom(){
- let x=document.getElementById('customIngredient').value.trim();
+ const input=document.getElementById("customIngredient");
+ const x=input.value.trim();
  if(!x)return;
- let known=[...Object.values(groups).flat(),...custom].find(v=>v===x);
+ const known=[...Object.values(groups).flat(),...custom].find(v=>v===x);
  if(known){chooseSuggestion(known);return}
  if(!custom.includes(x))custom.push(x);
  selected.add(x);
  quantities[x]=quantities[x]??defaultQty(x);
- document.getElementById('customIngredient').value='';
- document.getElementById('suggestions').classList.remove('show');
+ input.value="";
+ document.getElementById("suggestions").classList.remove("show");
  renderIngredients();
- if(currentPlan.length)renderShopping();
 }
 
 const recipes=[
-{n:'فول بالزيت والليمون',k:'فطار',i:'🫘',t:10,need:['فول','ليمون','زيت','عيش بلدي'],how:'سخّن الفول على نار هادية، واهرِسه بالشوكة. ضيف زيت وكمون وليمون، وقدّمه مع العيش والخضار.'},
-{n:'بيض بالطماطم (شكشوكة)',k:'فطار',i:'🍳',t:15,need:['بيض','طماطم','بصل','فلفل'],how:'شوّح البصل والفلفل، ضيف الطماطم لحد ما تتسبك، وبعدها اكسر البيض وغطي الطاسة لحد ما يستوي.'},
-{n:'جبنة وخضار وعيش بلدي',k:'فطار',i:'🧀',t:5,need:['جبنة بيضاء','خيار','طماطم','عيش بلدي'],how:'قطّع الجبنة والخيار والطماطم وقدّمهم مع العيش البلدي.'},
-{n:'بيض مسلوق وبطاطس',k:'فطار',i:'🥔',t:20,need:['بيض','بطاطس'],how:'اسلق البيض والبطاطس، وقدّمهم مع رشة كمون وليمون.'},
-{n:'شوفان باللبن والتمر',k:'فطار',i:'🥣',t:8,need:['شوفان','لبن','تمر'],how:'سخّن اللبن مع الشوفان وقلّب لحد القوام المناسب، وحلّيه بقطع التمر.'},
-{n:'فراخ بالفرن ورز',k:'غدا',i:'🍗',t:50,need:['فراخ','رز','بصل','ثوم'],how:'تبّل الفراخ بالبصل والثوم والبهارات والليمون، وادخلها الفرن لحد ما تستوي تماماً. قدّمها مع الرز.'},
-{n:'مكرونة باللحمة المفرومة',k:'غدا',i:'🍝',t:35,need:['مكرونة','لحمة مفرومة','صلصة طماطم','بصل'],how:'اسلق المكرونة. عصّج اللحمة مع البصل، ضيف الصلصة وسيبها تتسبك، وبعدها قدّمها مع المكرونة.'},
-{n:'كفتة وبطاطس في الفرن',k:'غدا',i:'🍢',t:45,need:['لحمة مفرومة','بطاطس','بصل','طماطم'],how:'اخلط اللحمة بالبصل والبهارات وشكّلها صوابع. رصّها مع البطاطس والطماطم وادخل الصينية الفرن.'},
-{n:'ملوخية ورز وفراخ',k:'غدا',i:'🥬',t:40,need:['ملوخية','فراخ','رز','ثوم'],how:'حضّر شوربة الفراخ. ضيف الملوخية للشوربة من غير غليان طويل، واعمل تقلية الثوم والكزبرة. قدّمها مع الرز والفراخ.'},
-{n:'كشري مصري',k:'غدا',i:'🥘',t:55,need:['رز','مكرونة','عدس','بصل','صلصة طماطم'],how:'اسلق العدس والمكرونة، واطبخ الرز. حضّر صلصة الطماطم والبصل المحمّر، وقدّم الطبقات مع بعض.'},
-{n:'بطاطس بالفراخ',k:'غدا',i:'🍲',t:45,need:['بطاطس','فراخ','بصل','طماطم'],how:'رصّ البطاطس والبصل والطماطم مع قطع الفراخ والتوابل وقليل من الميه، وادخل الصينية الفرن لحد التسوية.'},
-{n:'عدس أصفر',k:'غدا',i:'🍵',t:30,need:['عدس','جزر','بصل','بطاطس'],how:'اسلق العدس مع الجزر والبصل والبطاطس، واضربه بالخلاط. قدّمه مع الليمون والعيش.'},
-{n:'تونة وسلطة',k:'عشا',i:'🥗',t:10,need:['تونة','خيار','طماطم','ليمون'],how:'صفّي التونة واخلطها مع الخيار والطماطم والليمون. قدّمها مع العيش.'},
-{n:'زبادي وخيار وعيش',k:'عشا',i:'🥒',t:5,need:['زبادي','خيار','عيش بلدي'],how:'قطّع الخيار واخلطه بالزبادي ورشة نعناع أو كمون، وقدّمه مع العيش.'},
-{n:'ساندوتش جبنة وطماطم',k:'عشا',i:'🥪',t:7,need:['جبنة بيضاء','طماطم','عيش بلدي'],how:'اهرِس الجبنة مع الطماطم ورشة زيت زيتون أو نعناع، واحشي العيش.'},
-{n:'بطاطس مهروسة وبيض',k:'عشا',i:'🥔',t:20,need:['بطاطس','بيض','زبدة'],how:'اسلق البطاطس واهرِسها مع قطعة زبدة. قدّمها مع بيض مسلوق أو أومليت.'},
-{n:'فول بالطحينة',k:'عشا',i:'🫘',t:8,need:['فول','طحينة','ليمون','عيش بلدي'],how:'سخّن الفول وقلّبه مع الطحينة والليمون والكمون، وقدّمه مع العيش.'},
-{n:'أومليت خضار',k:'عشا',i:'🍳',t:12,need:['بيض','طماطم','فلفل','بصل'],how:'اخفق البيض مع الخضار المقطّع والتوابل، وسوّيه في طاسة مدهونة زيت.'}
+{n:"فول بالزيت والليمون",k:"فطار",i:"🫘",t:10,need:["فول","ليمون","زيت","عيش بلدي"],how:["صفّي الفول من السوائل الزائدة.","سخّنه في حلة صغيرة مع ملعقتين ماء على نار هادئة.","اهرِس جزءًا من الفول بالشوكة واترك الباقي صحيحًا.","أضف الكمون والملح وقلّب لمدة دقيقتين.","ارفعه من النار وأضف الزيت وعصير الليمون.","قدّمه مع العيش البلدي والخضار الطازج."]},
+{n:"بيض بالطماطم (شكشوكة)",k:"فطار",i:"🍳",t:15,need:["بيض","طماطم","بصل","فلفل"],how:["قطّع البصل والفلفل والطماطم مكعبات صغيرة.","سخّن قليلًا من الزيت وشوّح البصل حتى يطرى.","أضف الفلفل وقلّب لمدة دقيقتين.","أضف الطماطم والملح والفلفل والكمون واترك الخليط حتى تتسبك الصلصة.","اعمل فراغات صغيرة واكسر البيض فيها.","غطّ الطاسة على نار هادئة حتى ينضج البيض."]},
+{n:"جبنة وخضار وعيش بلدي",k:"فطار",i:"🧀",t:5,need:["جبنة بيضاء","خيار","طماطم","عيش بلدي"],how:["قطّع الجبنة إلى مكعبات.","اغسل الخيار والطماطم وجففهما جيدًا.","قطّع الخضار ورتّبه بجانب الجبنة.","أضف رشة زعتر أو نعناع حسب الرغبة.","قدّم الطبق مع العيش البلدي."]},
+{n:"بيض مسلوق وبطاطس",k:"فطار",i:"🥔",t:20,need:["بيض","بطاطس"],how:["اغسل البطاطس جيدًا وضعها في حلة ماء.","اسلق البطاطس حتى تلين عند اختبارها بالشوكة.","اسلق البيض في حلة منفصلة لمدة 9 إلى 10 دقائق بعد الغليان.","صفّ الماء واترك المكونات تبرد قليلًا.","قشّر البيض والبطاطس وقطّعهما.","أضف الكمون والملح والليمون."]},
+{n:"شوفان باللبن والتمر",k:"فطار",i:"🥣",t:8,need:["شوفان","لبن","تمر"],how:["ضع اللبن والشوفان في حلة صغيرة.","سخّن على نار متوسطة مع التقليب المستمر.","استمر لمدة 5 إلى 7 دقائق حتى يتماسك الخليط.","أزل النوى وقطّع التمر.","أضف التمر في آخر دقيقة.","اتركه يهدأ قليلًا قبل التقديم."]},
+{n:"أومليت بالجبنة",k:"فطار",i:"🍳",t:12,need:["بيض","جبنة بيضاء","فلفل"],how:["اخفق البيض في طبق مع الملح والفلفل.","فتّت الجبنة وقطّع الفلفل قطعًا صغيرة.","سخّن قليلًا من الزيت في طاسة غير لاصقة.","أضف الفلفل ثم اسكب البيض.","وزّع الجبنة على الوجه.","غطّ الطاسة حتى يتماسك البيض ثم قدّم الأومليت."]},
+{n:"بطاطس محمرة وبيض",k:"فطار",i:"🍟",t:20,need:["بطاطس","بيض","زيت"],how:["قشّر البطاطس وقطّعها أصابع متساوية.","اغسلها وجففها جيدًا.","اقْلِ البطاطس في زيت ساخن حتى تصبح ذهبية.","حضّر البيض بالطريقة المفضلة لديك.","صفِّ البطاطس من الزيت.","قدّمها ساخنة مع البيض."]},
+
+{n:"فراخ بالفرن ورز",k:"غدا",i:"🍗",t:50,need:["فراخ","رز","بصل","ثوم"],how:["جفف قطع الفراخ جيدًا.","اخلط البصل المبشور والثوم والليمون والملح والفلفل والبهارات وقليلًا من الزيت.","غطّ الفراخ بالتتبيلة واتركها 20 دقيقة على الأقل.","رصّ الفراخ في صينية وأضف قليلًا من الماء.","أدخلها فرنًا ساخنًا على 200 درجة حتى تنضج تمامًا.","تأكد من نضج الجزء الداخلي من الدجاج قبل التقديم.","اغسل الأرز واطبخه بالطريقة المعتادة."]},
+{n:"مكرونة باللحمة المفرومة",k:"غدا",i:"🍝",t:35,need:["مكرونة","لحمة مفرومة","صلصة طماطم","بصل"],how:["اسلق المكرونة في ماء مغلي مملح ثم صفّها.","شوّح البصل المفروم في قليل من الزيت.","أضف اللحمة المفرومة وفتّتها بملعقة حتى تنضج.","أضف صلصة الطماطم والملح والفلفل والبهارات.","اترك الصلصة على نار هادئة من 10 إلى 15 دقيقة.","قلّب المكرونة مع جزء من الصلصة وقدّم الباقي فوقها."]},
+{n:"كفتة وبطاطس في الفرن",k:"غدا",i:"🍢",t:45,need:["لحمة مفرومة","بطاطس","بصل","طماطم"],how:["ابشر البصل واعصره قليلًا.","اخلطه باللحمة والملح والفلفل والبهارات.","شكّل الخليط أصابع متساوية.","قطّع البطاطس والطماطم شرائح.","رصّ الخضار في صينية وضع الكفتة فوقها.","أضف نصف كوب ماء وقليلًا من الزيت.","غطّ الصينية واخبزها على 200 درجة حتى تنضج ثم اكشفها للتحمير."]},
+{n:"ملوخية ورز وفراخ",k:"غدا",i:"🥬",t:40,need:["ملوخية","فراخ","رز","ثوم"],how:["اسلق الفراخ مع البصل والحبهان والملح حتى تنضج.","صفِّ الشوربة واتركها تهدأ قليلًا.","أضف الملوخية تدريجيًا مع التقليب.","سخّنها على نار هادئة دون غليان شديد.","حمّر الثوم المفروم في السمن حتى يصبح ذهبيًا.","أضف الكزبرة الجافة ثم اسكب التقلية على الملوخية.","قدّمها مع الأرز والفراخ."]},
+{n:"كشري مصري",k:"غدا",i:"🥘",t:55,need:["رز","مكرونة","عدس","بصل","صلصة طماطم"],how:["اغسل العدس واسلقه حتى يقترب من النضج.","اطبخ الأرز بالطريقة المعتادة.","اسلق المكرونة والحمص كلًّا على حدة.","حضّر صلصة الطماطم بالثوم والخل والكمون واتركها تتسبك.","قطّع البصل شرائح رفيعة وحمّره حتى يصبح مقرمشًا.","رتّب الأرز والعدس والمكرونة والحمص في طبق.","أضف الصلصة والبصل المحمّر والدقة حسب الرغبة."]},
+{n:"بطاطس بالفراخ",k:"غدا",i:"🍲",t:45,need:["بطاطس","فراخ","بصل","طماطم"],how:["قطّع البطاطس حلقات متوسطة والبصل والطماطم شرائح.","تبّل الفراخ بالملح والفلفل والبهارات والثوم.","رصّ الخضار في صينية ثم وزّع الفراخ فوقه.","أضف نصف كوب ماء وملعقة زيت.","غطّ الصينية وأدخلها فرنًا على 200 درجة.","اتركها حتى تنضج الفراخ والبطاطس ثم اكشف الغطاء للتحمير."]},
+{n:"شوربة عدس أصفر",k:"غدا",i:"🍵",t:30,need:["عدس","جزر","بصل","بطاطس"],how:["اغسل العدس جيدًا.","قطّع الجزر والبصل والبطاطس مكعبات.","ضع الخضار والعدس في حلة وأضف ماءً يغطي المكونات.","اتركها تغلي ثم خفّف النار حتى تلين المكونات.","اخلط الشوربة بالخلاط اليدوي حتى تصبح ناعمة.","أعدها للنار واضبط الملح والكمون والقوام بالماء الساخن.","قدّمها مع الليمون والعيش."]},
+
+{n:"تونة وسلطة",k:"عشا",i:"🥗",t:10,need:["تونة","خيار","طماطم","ليمون"],how:["صفِّ التونة جيدًا من الزيت أو الماء.","اغسل الخيار والطماطم وقطّعهما مكعبات صغيرة.","اخلط المكونات مع عصير الليمون والملح والفلفل.","أضف رشة كمون وبقدونس مفروم إن توفر.","قدّم السلطة باردة مع العيش."]},
+{n:"زبادي وخيار وعيش",k:"عشا",i:"🥒",t:5,need:["زبادي","خيار","عيش بلدي"],how:["اغسل الخيار وابشره أو قطّعه مكعبات صغيرة.","اخلطه بالزبادي مع رشة ملح.","أضف نعناعًا جافًا أو كمونًا حسب الرغبة.","اترك الخليط في الثلاجة 10 دقائق.","قدّمه باردًا مع العيش البلدي."]},
+{n:"ساندوتش جبنة وطماطم",k:"عشا",i:"🥪",t:7,need:["جبنة بيضاء","طماطم","عيش بلدي"],how:["فتّت الجبنة في طبق.","قطّع الطماطم مكعبات صغيرة.","صفِّ السوائل الزائدة إذا كانت الطماطم كثيرة العصارة.","اخلط الجبنة بالطماطم ورشة فلفل ونعناع.","احشُ العيش وقدّمه فورًا."]},
+{n:"بطاطس مهروسة وبيض",k:"عشا",i:"🥔",t:20,need:["بطاطس","بيض","زبدة"],how:["قشّر البطاطس وقطّعها مكعبات متساوية.","اسلقها في ماء مملح حتى تلين.","صفّها جيدًا واهرِسها وهي ساخنة.","أضف الزبدة وقليلًا من اللبن والملح والفلفل.","قلّب حتى يصبح القوام ناعمًا.","قدّمها مع البيض المسلوق أو الأومليت."]},
+{n:"فول بالطحينة",k:"عشا",i:"🫘",t:8,need:["فول","طحينة","ليمون","عيش بلدي"],how:["سخّن الفول في حلة صغيرة مع ملعقة ماء.","اخلط الطحينة مع عصير الليمون.","أضف الماء تدريجيًا حتى يصبح الخليط كريميًا.","أضف الطحينة إلى الفول مع الكمون والملح.","قلّب جيدًا وقدّم الطبق ساخنًا مع العيش."]},
+{n:"أومليت خضار",k:"عشا",i:"🍳",t:12,need:["بيض","طماطم","فلفل","بصل"],how:["قطّع الطماطم والفلفل والبصل مكعبات صغيرة.","شوّح البصل والفلفل في قليل من الزيت حتى يطروا.","أضف الطماطم وقلّب لمدة دقيقة أو دقيقتين.","اخفق البيض مع الملح والفلفل.","اسكب البيض فوق الخضار.","خفّف النار وغطّ الطاسة حتى يتماسك الوجه.","اطوِ الأومليت وقدّمه ساخنًا."]},
+{n:"سلطة جبنة وخضار",k:"عشا",i:"🥗",t:10,need:["جبنة بيضاء","خيار","طماطم","ليمون"],how:["قطّع الجبنة إلى مكعبات.","اغسل الخيار والطماطم وقطّعهما.","اخلط المكونات في طبق واسع.","أضف عصير الليمون ورشة فلفل ونعناع.","أضف قليلًا من زيت الزيتون حسب الرغبة.","قدّم السلطة باردة."]}
 ];
 
-const days=['السبت','الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة'];
-
+const dayNames=["السبت","الأحد","الاثنين","الثلاثاء","الأربعاء","الخميس","الجمعة"];
 function choose(kind,used){
- let pool=recipes.filter(r=>r.k===kind);
- let scored=pool.map(r=>({r,s:r.need.filter(x=>selected.has(x)).length})).sort((a,b)=>b.s-a.s);
- let available=scored.filter(x=>x.s>=Math.min(2,x.r.need.length)&&!used.has(x.r.n));
- if(!available.length)available=scored.filter(x=>!used.has(x.r.n));
+ const pool=recipes.filter(r=>r.k===kind);
+ const scored=pool.map(r=>({r,s:r.need.filter(x=>selected.has(x)).length}));
+ scored.sort((a,b)=>b.s-a.s);
+ let available=scored.filter(x=>!used.has(x.r.n));
  if(!available.length)available=scored;
- let best=available[Math.floor(Math.random()*Math.min(available.length,Math.max(1,Math.ceil(available.length*.65))))].r;
+ const top=available.slice(0,Math.max(1,Math.ceil(available.length*.7)));
+ const best=top[Math.floor(Math.random()*top.length)].r;
  used.add(best.n);
  return best;
 }
-
 function generatePlan(){
- [...selected].forEach(x=>{
-  if(quantities[x]===undefined)quantities[x]=defaultQty(x);
- });
- let used=new Set();
- currentPlan=days.map(d=>({day:d,meals:[choose('فطار',used),choose('غدا',used),choose('عشا',used)]}));
+ updateFamily();
+ const used=new Set();
+ currentPlan=dayNames.map(day=>({
+  day,
+  meals:[choose("فطار",used),choose("غدا",used),choose("عشا",used)]
+ }));
+ planCreated=true;
  renderPlan();
- renderIngredients();
- document.getElementById('weekLabel').textContent='خطة جديدة • 7 أيام';
+ document.getElementById("weekLabel").textContent="خطة جديدة • 7 أيام";
+ document.getElementById("days").scrollIntoView({behavior:"smooth",block:"start"});
 }
-
 function renderPlan(){
- let labels=['🌅 الفطار','☀️ الغدا','🌙 العشا'];
- document.getElementById('days').innerHTML=currentPlan.map((d,di)=>`
- <section class="day">
-  <div class="daytop"><strong>${d.day}</strong><small>اليوم ${di+1} من 7</small></div>
-  <div class="meals">
-   ${d.meals.map((m,mi)=>`
-    <div class="meal">
-     <div class="kind">${labels[mi]}</div>
-     <div class="foodicon">${m.i}</div>
-     <div class="name">${m.n}</div>
-     <div class="meta">⏱ ${m.t} دقيقة</div>
-     <button onclick="showRecipe(${di},${mi})">طريقة التحضير ←</button>
-    </div>`).join('')}
-  </div>
- </section>`).join('');
- renderShopping();
+ const labels=["🌅 الفطار","☀️ الغدا","🌙 العشا"];
+ document.getElementById("days").innerHTML=currentPlan.map((d,di)=>`
+  <section class="day">
+   <div class="daytop"><strong>${d.day}</strong><small>اليوم ${di+1} من 7</small></div>
+   <div class="meals">
+    ${d.meals.map((m,mi)=>`
+     <div class="meal">
+      <div class="kind">${labels[mi]}</div>
+      <div class="foodicon">${m.i}</div>
+      <div class="name">${m.n}</div>
+      <div class="meta">⏱ ${m.t} دقيقة</div>
+      <button onclick="showRecipe(${di},${mi})">طريقة التحضير ←</button>
+     </div>`).join("")}
+   </div>
+  </section>`).join("");
 }
-
-function renderShopping(){
- let all=[...new Set(currentPlan.flatMap(d=>d.meals.flatMap(r=>r.need)))];
- let rows=all.map(x=>{
-  let req=requiredFor(x);
-  let have=selected.has(x)?Number(quantities[x]??defaultQty(x)):0;
-  return {x,req,have,unit:unitFor(x)};
- });
- let missing=rows.filter(r=>r.have<r.req);
- let fmt=n=>Number.isInteger(n)?n:n.toFixed(1);
-
- document.getElementById('shopping').innerHTML=missing.length
- ? `<div style="background:#fff4e8;border-radius:12px;padding:11px;margin-bottom:10px;color:#805323;font-size:12px;font-weight:800">محتاج تشتري ${missing.length} مكون</div>
-    <ul>${missing.map(r=>`
-     <li>
-      <b>${r.x}</b> — المطلوب ${fmt(r.req)} ${r.unit}،
-      المتاح ${fmt(r.have)} ${r.unit}،
-      <b style="color:#b36b2c">الناقص ${fmt(Math.max(0,r.req-r.have))} ${r.unit}</b>
-     </li>`).join('')}</ul>
-    <small style="color:#8b968e">الكميات تقديرية حسب الوصفات المختارة، وراجع المقادير قبل الطبخ.</small>`
- : '<div class="empty">🎉 مفيش نواقص حسب المكونات والكميات اللي سجلتها.</div>';
-}
-
 function showRecipe(d,m){
- let r=currentPlan[d].meals[m];
- document.getElementById('modalContent').innerHTML=`
+ const r=currentPlan[d].meals[m];
+ const people=document.getElementById("people").value;
+ const ingredients=r.need.map(x=>`<li>${x} ${selected.has(x)?"<span style='color:#27824e'>✓ موجود عندك</span>":""}</li>`).join("");
+ const steps=r.how.map(x=>`<li>${x}</li>`).join("");
+ document.getElementById("modalContent").innerHTML=`
   <h3>${r.i} ${r.n}</h3>
-  <p style="color:#718078">⏱ وقت التحضير: ${r.t} دقيقة</p>
+  <p style="color:#718078">⏱ وقت التحضير التقريبي: ${r.t} دقيقة</p>
   <b>المكونات:</b>
-  <ul>${r.need.map(x=>`<li>${x} ${selected.has(x)?'✓ موجود':'• ناقص'}</li>`).join('')}</ul>
-  <b>طريقة التحضير:</b><p>${r.how}</p>`;
- document.getElementById('modal').classList.add('show');
+  <ul>${ingredients}</ul>
+  <b>طريقة التحضير خطوة بخطوة:</b>
+  <ol class="steps">${steps}</ol>
+  <p style="color:#718078;font-size:11px">عدد أفراد الأسرة المسجل: ${people}. اضبط المقادير حسب احتياج الأسرة.</p>`;
+ document.getElementById("modal").classList.add("show");
 }
-
-function closeModal(){
- document.getElementById('modal').classList.remove('show');
+function closeModal(){document.getElementById("modal").classList.remove("show")}
+function printPlan(){
+ if(!planCreated){alert("اعمِل جدول الأسبوع الأول قبل الطباعة.");return}
+ window.print();
 }
-
-document.addEventListener('click',e=>{
- if(!e.target.closest('.suggest-wrap'))document.getElementById('suggestions')?.classList.remove('show');
+document.addEventListener("click",e=>{
+ if(!e.target.closest(".addrow"))document.getElementById("suggestions").classList.remove("show");
 });
-
 renderIngredients();
-generatePlan();
 </script>
 </body>
 </html>
